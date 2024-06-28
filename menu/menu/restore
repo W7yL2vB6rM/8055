@@ -1,0 +1,83 @@
+#!/bin/bash
+REPOKU="https://raw.githubusercontent.com/vmessh/izin/script"
+REPOSC="https://raw.githubusercontent.com/igitd7rx7r/2827292/2827292"
+biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
+colornow=$(cat /etc/alawivpn/theme/color.conf)
+export NC="\e[0m"
+export YELLOW='\033[0;33m';
+export RED="\033[0;31m"
+export COLOR1="$(cat /etc/alawivpn/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
+export COLBG1="$(cat /etc/alawivpn/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"
+WH='\033[1;37m'
+ipsaya=$(wget -qO- ipv4.icanhazip.com)
+data_server=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
+date_list=$(date +"%Y-%m-%d" -d "$data_server")
+data_ip="${REPOKU}/registrasi.txt"
+checking_sc() {
+    useexp=$(curl -sS "$data_ip" | grep "$ipsaya" | awk '{print $3}')
+    if [[ "$date_list" > "$useexp" ]]; then
+        systemctl stop nginx
+        systemctl stop kyt
+        systemctl stop xray
+        systemctl stop ws-stunnel
+        dilarang
+    else
+        echo -ne
+    fi
+}
+checking_sc
+mkdir -p /etc/xray/botexp/
+clear
+echo -e "$COLOR1
+ ┌─────────────────────────────────────────────────┐
+ │${WH}     This Feature Can Only Be Used According     ${COLOR1}│
+ │${WH}        To VPS Data With This Autoscript         ${COLOR1}│
+ │${WH}                                                 ${COLOR1}│
+ │${WH}       Please Insert VPS Data Backup Link        ${COLOR1}│
+ │${WH}              To Restore The Data                ${COLOR1}│
+ └─────────────────────────────────────────────────┘
+${NC}"
+read -rp " Link File: " -e url
+cd
+echo
+echo -e " [ ${COLOR1}INFO${NC} ] Downloading . . ."
+mkdir -p /root/backup
+wget -O backup.zip "$url" &> /dev/null
+unzip backup.zip  &> /dev/null
+rm -f backup.zip
+sleep 1
+cd /root/backup
+echo -e " [ ${COLOR1}INFO${NC} ] Restoring . . ."
+sleep 2
+cp -r passwd /etc/ &> /dev/null
+cp -r group /etc/ &> /dev/null
+cp -r shadow /etc/ &> /dev/null
+cp -r xray /etc/xray/config.json &> /dev/null
+cp -r ssh /etc/xray/ssh &> /dev/null
+cp -r idchat /usr/bin/idchat &> /dev/null
+cp -r token /usr/bin/token &> /dev/null
+cp -r id /etc/per/id &> /dev/null
+cp -r token2 /etc/per/token &> /dev/null
+cp -r loginid /etc/perlogin/id &> /dev/null
+cp -r logintoken /etc/perlogin/token &> /dev/null
+cp -r expid /etc/botexp/id &> /dev/null
+cp -r exptoken /etc/botexp/token &> /dev/null
+cp -r public_html /home/vps/ &> /dev/null
+cp -r gshadow /etc/ &> /dev/null
+cp -r sshx /etc/xray/ &> /dev/null
+cp -r vmess /etc/ &> /dev/null
+cp -r vless /etc/ &> /dev/null
+cp -r trojan /etc/ &> /dev/null
+cp -r issue /etc/issue.net &> /dev/null
+echo -e " [ ${COLOR1}INFO${NC} ] VPS Data Restore Complete !"
+sleep 1
+echo -e " [ ${COLOR1}INFO${NC} ] Restart All Service . . ."
+systemctl restart xray
+systemctl restart nginx
+cd
+rm -rf *
+echo -e " [ ${COLOR1}INFO${NC} ] Done!"
+sleep 1
+echo
+read -n 1 -s -r -p " Press any key to back on menu"
+menu

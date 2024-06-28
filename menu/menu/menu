@@ -1,0 +1,745 @@
+#!/bin/bash
+REPOKU="https://raw.githubusercontent.com/vmessh/izin/script"
+REPOSC="https://raw.githubusercontent.com/igitd7rx7r/2827292/2827292"
+REPOKEY="https://raw.githubusercontent.com/vmessh/license/script"
+biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
+MYIP=$(curl -sS ipv4.icanhazip.com)
+colornow=$(cat /etc/alawivpn/theme/color.conf)
+#wget -q -O /etc/xray/versisc "${REPOSC}/versi" > /dev/null
+export NC="\e[0m"
+export yl='\e[0;33m';
+export RED="\e[0;31m"
+export COLOR1="$(cat /etc/alawivpn/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
+export COLBG1="$(cat /etc/alawivpn/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"
+WH='\e[1;37m'
+U=$COLOR1
+O=$CLOBG1
+W=$WH
+R=$RED
+Y='\e[1;33m'
+C='\e[1;36m'
+N=$NC
+function convert() {
+    local -i megabytes=$1
+    if [[ $megabytes -lt 1024 ]]; then
+        echo "${megabytes} MB"
+    else
+        echo "$(awk "BEGIN {printf \"%.1f\", $megabytes/1024}" | sed 's/\.0$//') GB"
+    fi
+}
+tram=$( free -m | awk 'NR==2 {print $2}' ); tram=$(convert $tram)
+uram=$( free -m | awk 'NR==2 {print $3}' ); uram=$(convert $uram)
+ISP=$(cat /etc/xray/isp)
+CITY=$(cat /etc/xray/city)
+author=$(cat /etc/profil)
+DAY=$(date +%A)
+DATE=$(date +%m/%d/%Y)
+#DATE2=$(date -R | cut -d " " -f -5)
+DATE2=$(date +"%A, %d %B %Y | %H:%M %Z" | sed 's/Monday/Senin/;s/Tuesday/Selasa/;s/Wednesday/Rabu/;s/Thursday/Kamis/;s/Friday/Jum'\''at/;s/Saturday/Sabtu/;s/Sunday/Minggu/;s/January/Januari/;s/February/Februari/;s/March/Maret/;s/April/April/;s/May/Mei/;s/June/Juni/;s/July/Juli/;s/August/Agustus/;s/September/September/;s/October/Oktober/;s/November/November/;s/December/Desember/')
+MYIP=$(curl -sS ipv4.icanhazip.com)
+Isadmin=$(curl -sS ${REPOKU}/registrasi.txt | grep $MYIP | awk '{print $5}')
+Exp2=$(curl -sS ${REPOKU}/registrasi.txt | grep $MYIP | awk '{print $3}')
+export RED='\e[0;31m'
+export GREEN='\e[0;32m'
+Name=$(curl -sS ${REPOKU}/registrasi.txt | grep $MYIP | awk '{print $2}')
+ipsaya=$(curl -sS ipv4.icanhazip.com)
+data_server=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
+date_list=$(date +"%Y-%m-%d" -d "$data_server")
+data_ip="${REPOKU}/registrasi.txt"
+checking_sc() {
+    useexp=$(curl -sS "$data_ip" | grep "$ipsaya" | awk '{print $3}')
+    if [[ "$date_list" > "$useexp" ]]; then
+        systemctl stop nginx
+        systemctl stop kyt
+        systemctl stop xray
+        systemctl stop ws-stunnel
+        dilarang
+    else
+        echo -ne
+    fi
+}
+checking_sc
+function key(){
+echo -e " ${U}┌──────────────────────────────────────────┐${N}"
+echo -e " ${U}│           MASUKKAN LICENSE KEY           │${N}"
+echo -e " ${U}└──────────────────────────────────────────┘${N}"
+echo
+read -rp " Masukan Key Kamu Disini ctrl + c Exit : " -e kode
+cd
+if [ -z $kode ]; then
+echo -e " KODE SALAH SILAHKAN MASUKKAN ULANG KODENYA"
+key
+fi
+clear
+LIST=$(curl -sS ${REPOKEY}/key | grep $kode | awk '{print $2}')
+Key=$(curl -sS ${REPOKEY}/key | grep $kode | awk '{print $3}')
+KEY2=$(curl -sS ${REPOKEY}/key | grep $kode | awk '{print $4}')
+ADMIN=$(curl -sS ${REPOKEY}/key | grep $kode | awk '{print $5}')
+TOTALIP=$(curl -sS ${REPOKEY}/key | grep $kode | awk '{print $6}')
+U2=$(curl -sS ${REPOKU}/registrasi.txt | grep $MYIP | awk '{print $2}')
+U3=$(curl -sS ${REPOKU}/registrasi.txt | grep $MYIP | awk '{print $3}')
+U4=$(curl -sS ${REPOKU}/registrasi.txt | grep $MYIP | awk '{print $4}')
+U5=$(curl -sS ${REPOKU}/registrasi.txt | grep $MYIP | awk '{print $5}')
+U6=$(curl -sS ${REPOKU}/registrasi.txt | grep $MYIP | awk '{print $6}')
+MYIP=$(curl -sS ipv4.icanhazip.com)
+web=$(curl -A "Wget" -sS  http://rmblvpn.my.id/ress | grep $kode | awk '{print $3}')
+web2=$(curl -A "Wget" -sS http://rmblvpn.my.id/ress | grep $kode | awk '{print $2}')
+web3=$(curl -A "Wget" -sS http://rmblvpn.my.id/ress | grep $kode | awk '{print $4}')
+web4=$(curl -A "Wget" -sS http://rmblvpn.my.id/ress | grep $kode | awk '{print $5}')
+web5=$(curl -A "Wget" -sS http://rmblvpn.my.id/ress | grep $kode | awk '{print $6}')
+userscript="vmessh"
+emailscript="vmesssh@gmail.com"
+tokenscript="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"
+userkey=$userscript
+emailkey=$emailscript
+tokenkey=$tokensceipt
+if [[ $kode == $web ]]; then
+MYIP=$(curl -sS ipv4.icanhazip.com)
+hhari=$(date -d "$web3 days" +"%Y-%m-%d")
+mkdir /root/petapaan
+cd /root/petapaan
+wget ${REPOKU}/registrasi.txt >/dev/null 2>&1
+if [ "$U4" = "$MYIP" ]; then
+sed -i "s/### $U2 $U3 $U4 $U5/### $U2 $hhari $U4 $U5/g" /root/petapaan/registrasi.txt
+else
+echo "### $author $hhari $MYIP $web2" >> registrasi.txt
+fi
+sleep 0.5
+rm -rf .git
+git config --global user.email "${emailscript}" >/dev/null 2>&1
+git config --global user.name "${userscript}" >/dev/null 2>&1
+git init >/dev/null 2>&1
+git add registrasi.txt
+git commit -m register >/dev/null 2>&1
+git branch -M main >/dev/null 2>&1
+git remote add origin https://github.com/${userscript}/izin >/dev/null 2>&1
+git push -f https://${tokenscript}@github.com/${userscript}/izin >/dev/null 2>&1
+rm -rf /root/petapaan
+rm -rf /etc/github
+clear
+elif [[ $kode == $Key ]]; then
+MYIP=$(curl -sS ipv4.icanhazip.com)
+author4=$(cat /etc/profil)
+hhari=$(date -d "$KEY2 days" +"%Y-%m-%d")
+mkdir /root/petapaan
+cd /root/petapaan
+wget ${REPOKU}/registrasi.txt >/dev/null 2>&1
+if [ "$U4" = "$MYIP" ]; then
+sed -i "s/### $U2 $U3 $U4 $U5/### $U2 $hhari $U4 $U5/g" /root/petapaan/registrasi.txt
+else
+echo "### $author $hhari $MYIP $LIST" >> registrasi.txt
+fi
+sleep 0.5
+rm -rf .git
+git config --global user.email "${emailscript}" >/dev/null 2>&1
+git config --global user.name "${userscript}" >/dev/null 2>&1
+git init >/dev/null 2>&1
+git add registrasi.txt
+git commit -m register >/dev/null 2>&1
+git branch -M main >/dev/null 2>&1
+git remote add origin https://github.com/${userscript}/izin >/dev/null 2>&1
+git push -f https://${tokenscript}@github.com/${userscript}/izin >/dev/null 2>&1
+sleep 0.5
+rm registrasi.txt
+wget ${REPOKEY}/key >/dev/null 2>&1
+if [ "$ADMIN" = "ON" ]; then
+sed -i "/^### $LIST $Key $KEY2 $ADMIN $TOTALIP/d" /root/petapaan/key
+else
+sed -i "/^### $LIST $Key $KEY2/d" /root/petapaan/key
+fi
+sleep 0.5
+rm -rf .git
+git config --global user.email "${emailkey}" >/dev/null 2>&1
+git config --global user.name "${userkey}" >/dev/null 2>&1
+git init >/dev/null 2>&1
+git add key
+git commit -m register >/dev/null 2>&1
+git branch -M main >/dev/null 2>&1
+git remote add origin https://github.com/${userkey}/license >/dev/null 2>&1
+git push -f https://${tokenkey}@github.com/${userkey}/license >/dev/null 2>&1
+rm -rf /root/petapaan
+rm -rf /etc/github
+else
+echo -e " KODE SALAH SILAHKAN MASUKKAN ULANG KODENYA"
+sleep 1
+key
+fi
+echo -e " ${U}┌──────────────────────────────────────────┐${N}"
+echo -e " ${U}│              INFO LICENSE KEY            │${N}"
+echo -e " ${U}└──────────────────────────────────────────┘${N}"
+echo -e " SUCCES MASUKKAN KEY SILAHKAN DITUNGGU"
+echo -e " 2 MENIT AGAR SERVER KEREFRESH"
+read -n 1 -s -r -p "Press any key to Exit"
+systemctl restart xray
+reboot
+exit
+clear
+}
+madmin=$(curl -sS ${REPOKU}/registrasi.txt | grep $MYIP | awk '{print $5}')
+checking_sc
+cd
+if [ ! -e /etc/per/id ]; then
+mkdir -p /etc/per
+echo "" > /etc/per/id
+echo "" > /etc/per/token
+elif [ ! -e /etc/perlogin/id ]; then
+mkdir -p /etc/perlogin
+echo "" > /etc/perlogin/id
+echo "" > /etc/perlogin/token
+elif [ ! -e /usr/bin/id ]; then
+echo "" > /usr/bin/idchat
+echo "" > /usr/bin/token
+fi
+if [ ! -e /etc/xray/ssh ]; then
+echo "" > /etc/xray/ssh
+elif [ ! -e /etc/xray/sshx ]; then
+mkdir -p /etc/xray/sshx
+elif [ ! -e /etc/xray/sshx/listlock ]; then
+echo "" > /etc/xray/sshx/listlock
+elif [ ! -e /etc/vmess ]; then
+mkdir -p /etc/vmess
+elif [ ! -e /etc/vmess/listlock ]; then
+echo "" > /etc/vmess/listlock
+elif [ ! -e /etc/vless ]; then
+mkdir -p /etc/vless
+elif [ ! -e /etc/vless/listlock ]; then
+echo "" > /etc/vless/listlock
+elif [ ! -e /etc/trojan ]; then
+mkdir -p /etc/trojan
+elif [ ! -e /etc/trojan/listlock ]; then
+echo "" > /etc/trojan/listlock
+fi
+clear
+MODEL2=$(cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g')
+LOADCPU=$(printf '%-0.00001s' "$(top -bn1 | awk '/Cpu/ { cpu = "" 100 - $8 "%" }; END { print cpu }')")
+CORE=$(printf '%-1s' "$(grep -c cpu[0-9] /proc/stat)")
+cpu_usage1="$(ps aux | awk 'BEGIN {sum=0} {sum+=$3}; END {print sum}')"
+cpu_usage="$((${cpu_usage1/\.*} / ${corediilik:-1}))"
+cpu_usage+=" %"
+vnstat_profile=$(vnstat | sed -n '3p' | awk '{print $1}' | grep -o '[^:]*')
+vnstat -i ${vnstat_profile} >/etc/t1
+bulan=$(date +%b)
+tahun=$(date +%y)
+ba=$(curl -s https://pastebin.com/raw/0gWiX6hE)
+today=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $8}')
+todayd=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $8}')
+today_v=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $9}')
+today_rx=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $2}')
+today_rxv=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $3}')
+today_tx=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $5}')
+today_txv=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $6}')
+if [ "$(grep -wc ${bulan} /etc/t1)" != '0' ]; then
+bulan=$(date +%b)
+month=$(vnstat -i ${vnstat_profile} | grep "$bulan $ba$tahun" | awk '{print $9}')
+month_v=$(vnstat -i ${vnstat_profile} | grep "$bulan $ba$tahun" | awk '{print $10}')
+month_rx=$(vnstat -i ${vnstat_profile} | grep "$bulan $ba$tahun" | awk '{print $3}')
+month_rxv=$(vnstat -i ${vnstat_profile} | grep "$bulan $ba$tahun" | awk '{print $4}')
+month_tx=$(vnstat -i ${vnstat_profile} | grep "$bulan $ba$tahun" | awk '{print $6}')
+month_txv=$(vnstat -i ${vnstat_profile} | grep "$bulan $ba$tahun" | awk '{print $7}')
+else
+bulan2=$(date +%Y-%m)
+month=$(vnstat -i ${vnstat_profile} | grep "$bulan2 " | awk '{print $8}')
+month_v=$(vnstat -i ${vnstat_profile} | grep "$bulan2 " | awk '{print $9}')
+month_rx=$(vnstat -i ${vnstat_profile} | grep "$bulan2 " | awk '{print $2}')
+month_rxv=$(vnstat -i ${vnstat_profile} | grep "$bulan2 " | awk '{print $3}')
+month_tx=$(vnstat -i ${vnstat_profile} | grep "$bulan2 " | awk '{print $5}')
+month_txv=$(vnstat -i ${vnstat_profile} | grep "$bulan2 " | awk '{print $6}')
+fi
+if [ "$(grep -wc yesterday /etc/t1)" != '0' ]; then
+yesterday=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $8}')
+yesterday_v=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $9}')
+yesterday_rx=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $2}')
+yesterday_rxv=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $3}')
+yesterday_tx=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $5}')
+yesterday_txv=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $6}')
+else
+yesterday=NULL
+yesterday_v=NULL
+yesterday_rx=NULL
+yesterday_rxv=NULL
+yesterday_tx=NULL
+yesterday_txv=NULL
+fi
+ssh_ws=$( systemctl status ws-stunnel | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
+if [[ $ssh_ws == "running" ]]; then
+status_ws="ON"
+else
+status_ws="OFF"
+fi
+nginx=$( systemctl status nginx | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
+if [[ $nginx == "running" ]]; then
+status_nginx="ON"
+else
+status_nginx="OFF"
+systemctl start nginx
+fi
+if [[ -e /usr/bin/kyt ]]; then
+nginx=$( systemctl status kyt | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
+if [[ $nginx == "running" ]]; then
+echo -ne
+else
+systemctl start kyt
+fi
+fi
+rm -rf /etc/status
+xray=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
+if [[ $xray == "running" ]]; then
+status_xray="ON"
+else
+status_xray="OFF"
+fi
+Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[4$below" && Font_color_suffix="\033[0m"
+Info="${Green_font_prefix}(Registered)${Font_color_suffix}"
+Error="${Green_font_prefix}${Font_color_suffix}${Red_font_prefix}[EXPIRED]${Font_color_suffix}"
+today=$(date -d "0 days" +"%Y-%m-%d")
+G='\e[1;32m'
+N='\e[0m'
+R='\e[1;31m'
+if [[ $today > $Exp2 ]]; then
+    sts="(${R}Expired${W})"
+else
+    sts="(${G}Activated${W})"
+fi
+vmess=$(grep -c -E "^#vmg " "/etc/xray/config.json")
+vless=$(grep -c -E "^#vlg " "/etc/xray/config.json")
+trtls=$(grep -c -E "^#trg " "/etc/xray/config.json")
+total_ssh=$(grep -c -E "^### " "/etc/xray/ssh")
+function m-ip2(){
+clear
+cd
+if [[ -e /etc/github/api ]]; then
+m-ip
+else
+mkdir /etc/github
+echo -e "${tokenscript}" > /etc/github/api
+echo -e "${emailscript}" > /etc/github/email
+echo -e "${userscript}" > /etc/github/username
+m-ip
+fi
+}
+uphours=$(uptime -p | awk '{print $2,$3}' | cut -d , -f1 | sed 's/hours/jam/;s/hour/jam/;s/days/hari/;s/day/hari/;s/minutes/menit/;s/minute/menit/')
+upminutes=$(uptime -p | awk '{print $4,$5}' | cut -d , -f1 | sed 's/minutes/menit/;s/minute/menit/')
+uptimecek=`uptime -p | awk '{print $6,$7}' | cut -d , -f1`
+cekup=`uptime -p | grep -ow "day"`
+if [ "$Isadmin" = "ON" ]; then
+uis="${U}Premium ADMIN VIP${N}"
+else
+uis="${U}Premium Version${N}"
+fi
+function m-bot2(){
+clear
+echo -e "$U
+ ╔═════════════════════════════════════════════╗
+ ║$W $O             MENU BOT MANAGER              $N $U║
+ ╚═════════════════════════════════════════════╝
+ ╔═════════════════════════════════════════════╗
+ ║$W [${U}01${W}] Bot Notif, Multi-Login, dan Trx        $U║
+ ║$W [${U}02${W}] Bot Notif create account               $U║
+ ║$W [${U}03${W}] Bot Notif backup vps                   $U║
+ ║$W [${U}04${W}] Bot Notif expired accounts             $U║
+ ║$W [${U}00${W}] Kembali ke menu                        $U║
+ ╚═════════════════════════════════════════════╝$N
+"
+read -p "  Pilih 1/2/3/4 atau 0/random untuk kembali: " bot
+echo ""
+if [[ $bot == "1" ]]; then
+	clear
+	rm -rf /etc/perlogin
+	mkdir -p /etc/perlogin
+	cd /etc/perlogin
+	touch token
+	touch id
+	echo -e "$U ——————————————————————————————————————————$N"
+	echo -e "$W     Isi data Bot Notif, MuLog, dan Trx    $N"
+	echo -e "$U ——————————————————————————————————————————$N"
+	echo
+	echo -e " - Masukkan Token Bot (@BotFather):"
+	read -rp "$(echo -e "$C ---> $N: ")" -e token2
+	echo "$token2" > token
+	echo -e " - Masukkan ID Telgram (@MissRose_bot): "
+	read -rp "$(echo -e "$C ---> $N: ")" -e idat
+	echo "$idat" > id
+	echo
+	echo -e "$W [$U INFO $W] Sedang proses...${N}"
+	sleep 3
+	echo -e "$W [$U INFO $W] Done...!${N}"
+	echo -e "$U ——————————————————————————————————————————$N"
+	sleep 2
+	read -rp "$(echo -e "$W Tekan [${U} enter ${W}] untuk Kembali${N} ")"
+	m-bot2
+fi
+if [[ $bot == "2" ]]; then
+	clear
+	rm -rf /etc/per
+	mkdir -p /etc/per
+	cd /etc/per
+	touch token
+	touch id
+	echo -e "$U ——————————————————————————————————————————$N"
+	echo -e "$W         Isi data bot Create Account       $N"
+	echo -e "$U ——————————————————————————————————————————$N"
+	echo
+	echo -e " - Masukkan Token Bot (@BotFather):"
+	read -rp "$(echo -e "$C ---> $N: ")" -e token3
+	echo "$token3" > token
+	echo -e " - Masukkan ID Telgram (@MissRose_bot): "
+	read -rp "$(echo -e "$C ---> $N: ")" -e idat2
+	echo "$idat2" > id
+	echo
+	echo -e "$W [$U INFO $W] Sedang proses...${N}"
+        sleep 3
+        echo -e "$W [$U INFO $W] Done...!${N}"
+	echo -e "$U ——————————————————————————————————————————$N"
+	sleep 2
+	read -rp "$(echo -e "$W Tekan [${U} enter ${W}] untuk Kembali${N} ")"
+	m-bot2
+fi
+if [[ $bot == "3" ]]; then
+	clear
+	rm -rf /usr/bin/token
+	rm -rf /usr/bin/idchat
+	touch /usr/bin/token
+	touch /usr/bin/idchat
+	echo -e "$U ——————————————————————————————————————————$N"
+	echo -e "$W      Isi data bot Backup via Telegram     $N"
+	echo -e "$U ——————————————————————————————————————————$N"
+	echo
+	echo -e " - Masukkan Token Bot (@BotFather):"
+	read -rp "$(echo -e "$C ---> $N: ")" -e token23
+	echo "$token23" > /usr/bin/token
+	echo -e " - Masukkan ID Telgram (@MissRose_bot): "
+	read -rp "$(echo -e "$C ---> $N: ")" -e idchat
+	echo "$idchat" > /usr/bin/idchat
+	echo
+	echo -e "$W [$U INFO $W] Sedang proses...${N}"
+        sleep 3
+        echo -e "$W [$U INFO $W] Done...!${N}"
+	echo -e "$U ——————————————————————————————————————————$N"
+        sleep 2
+	read -rp "$(echo -e "$W Tekan [${U} enter ${W}] Kembali ke menu${N} ")"
+	m-bot2
+fi
+if [[ $bot == "4" ]]; then
+        clear
+	mkdir -p /etc/botexp/
+	touch /etc/botexp/token
+	touch /etc/botexp/id
+	echo
+        echo -e "$U ——————————————————————————————————————————$N"
+        echo -e "$W       Isi data bot Expired Accounts       $N"
+        echo -e "$U ——————————————————————————————————————————$N"
+        echo
+        echo -e " - Masukkan Token Bot (@BotFather):"
+        read -rp "$(echo -e "$C ---> $N: ")" -e token23
+        echo "$token23" > /etc/botexp/token
+        echo -e " - Masukkan ID Telgram (@MissRose_bot): "
+        read -rp "$(echo -e "$C ---> $N: ")" -e idchat
+        echo "$idchat" > /etc/botexp/id
+        echo
+        echo -e "$W [$U INFO $W] Sedang proses...${N}"
+        sleep 3
+        echo -e "$W [$U INFO $W] Done...!${N}"
+        echo -e "$U ——————————————————————————————————————————$N"
+        sleep 2
+        read -rp "$(echo -e "$W Tekan [${U} enter ${W}] Kembali ke menu${N} ")"
+        menu
+fi
+menu
+}
+clear
+clear && clear && clear
+clear;clear;clear
+if [ "$Isadmin" = "ON" ]; then
+echo -e " ${U}┌──────────────── ● PANEL ADMIN VIP ● ────────────┐${N}"
+echo -e " ${U}│  ${W}[${U}13${W}]${N} ${U}● ${W}RESELLER IP ${W}[${U}MENU${W}] ${U} ${N}"
+ressee="m-ip2"
+bottt="m-bot"
+echo -e " ${U}└─────────────────────────────────────────────────┘${N}"
+else
+ressee="menu"
+bottt="menu"
+fi
+DATE=$(date +'%Y-%m-%d')
+datediff() {
+d1=$(date -d "$1" +%s)
+d2=$(date -d "$2" +%s)
+echo -e "${U} ${N} Expiry In   : $(( (d1 - d2) / 86400 )) Days"
+}
+function new(){
+cat> /etc/cron.d/autocpu << END
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+*/3 * * * * root /usr/bin/autocpu
+END
+echo "Auto-Reboot CPU 100% TURN ON."
+sleep 1
+menu
+}
+function newx(){
+clear
+until [[ $usagee =~ ^[0-9]+$ ]]; do
+read -p "kuota user format angka 1, 2 atau 3 (TERA): " usagee
+done
+echo "$usagee" > /etc/usagee
+cat> /etc/cron.d/bantwidth << END
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+*/10 * * * * root /usr/bin/bantwidth
+END
+echo "Auto-Shutdown $usagee TERA TURN ON."
+sleep 1
+menu
+}
+d1=$(date -d "$Exp2" +%s)
+d2=$(date -d "$today" +%s)
+certificate=$(( (d1 - d2) / 86400 ))
+domain=$(cat /etc/xray/domain)
+clear
+R='\e[1;31m'
+G='\e[1;32m'
+C='\e[1;36m'
+U=${U}
+O=$COLBG1
+W='\e[1;37m'
+N='\e[0m'
+VPSRAM="$tram | $uram"
+UPTIME="$uphours $upminutes $uptimecek"
+MYIP="$(wget -qO- ipv4.icanhazip.com)"
+DOMAIN=$(cat /etc/xray/domain)
+if [[ ${madmin} == "ON" ]]; then
+    SCOWNER="Administrator"
+else
+    SCOWNER="$madmin"
+fi
+SSHWS="$status_ws"
+XRAY="$status_xray"
+NGINX="$status_nginx"
+if [[ $SSHWS == "ON" ]]; then
+    O1="$G"
+else
+    O1="$R"
+fi
+if [[ $XRAY == "ON" ]]; then
+    O2="$G"
+else
+    O2="$R"
+fi
+if [[ $NGINX == "ON" ]]; then
+    O3="$G"
+else
+    O3="$R"
+fi
+today_val=$(echo "$today_tx $today_txv" | sed 's/MiB/MB/;s/GiB/GB/')
+yesterday_val=$(echo "$yesterday_tx $yesterday_txv" | sed 's/MiB/MB/;s/GiB/GB/')
+month_val=$(echo "$month_tx $month_txv" | sed 's/MiB/MB/;s/GiB/GB/')
+function mulai_ulang(){
+clear
+echo -e "
+ $U——————————————————————————————————————$N
+  $O       ME-REBOOT SERVER VPS        $N
+ $U——————————————————————————————————————$N
+  Reboot VPS dalam 3 detik
+"
+tput civis
+for i in {3..1}
+do
+    echo -ne "\r  Reboot ${G}$i${N} detik lagi.."
+    sleep 1
+done
+echo -ne "\r  Reboot ${G}sekarang..!!${N}    \n"
+tput cnorm
+sleep 0.5
+reboot
+}
+
+# ADA PEMBARUAN
+function ada_pembaruan(){
+clear
+echo
+echo -e "        ———————————————————"
+echo -e "${Y}         ⚠️ PEMBERITAHUAN ⚠️${N}"
+echo -e "        ———————————————————"
+echo
+echo -e " Update script baru sudah ${G}tersedia!${N}"
+echo -e " Harap update agar lebih optimal!"
+echo -e " Versi script anda saat ini adalah ${G}$versisc${N}"
+echo -e " Versi script terbaru adalah ${G}$versigh${N}"
+echo
+while true; do
+    echo -ne " Apakah anda mau update sekarang (${G}Y${N}/${G}n${N}): "; read response
+    if [[ $response =~ ^[Yy]$ ]] || [[ -z $response ]]; then
+        update && break
+    elif [[ $response =~ ^[Nn]$ ]]; then
+        echo -e "${R} Script tidak diupdate${N}"
+        sleep 2 && clear && mulai_ulang && break
+    else
+        echo -e "${R} Pilihan tidak tepat!${N}"
+        sleep 2
+    fi
+done
+}
+# update
+function update(){
+function loading() {
+    CMD[0]="$1"
+    CMD[1]="$2"
+    (
+        [[ -e $HOME/fim ]] && rm $HOME/fim
+        ${CMD[0]} -y >/dev/null 2>&1
+        ${CMD[1]} -y >/dev/null 2>&1
+        touch $HOME/fim
+    ) >/dev/null 2>&1 &
+    tput civis
+    echo -ne " \033[1;33m Sedang Proses Update \033[1;37m- \033[1;33m["
+    while true; do
+        for ((i = 0; i < 18; i++)); do
+            echo -ne "\033[0;32m●"
+            sleep 0.1s
+        done
+        [[ -e $HOME/fim ]] && rm $HOME/fim && break
+        echo -e "\033[0;33m]"
+        sleep 1s
+        tput cuu1
+        tput dl1
+        echo -ne " \033[1;33m Sedang Proses Update \033[1;37m- \033[1;33m["
+    done
+    echo -e "\033[1;33m]\033[1;37m -\033[1;32m OK !\033[1;37m"
+    tput cnorm
+}
+
+function berhasil(){
+#echo
+#echo -e " ${U}┌──────────────────────────────────────────┐${N}"
+#echo -e " ${U}│${W}        UPDATE SCRIPT VPN BERHASIL        ${U}│${N}"
+#echo -e " ${U}└──────────────────────────────────────────┘${N}"
+sleep 1
+echo
+echo -e "  Kembali ke menu dalam 3 detik"
+echo
+tput civis
+for i in {3..1}
+do
+    echo -ne "\r  Kembali ${G}$i${N} detik lagi.."
+    sleep 1
+done
+echo -ne "\r  Kembali ${G}sekarang..!!${N}    \n"
+tput cnorm
+menu
+}
+clear
+function load() {
+    wget -q ${REPOSC}/menu/ekstra.sh && chmod +x ekstra.sh && ./ekstra.sh
+    cd && rm -rf ektra*
+}
+echo
+echo -e " ${U}┌──────────────────────────────────────────┐${N}"
+echo -e " ${U}│${W}             UPDATE SCRIPT VPN            ${U}│${N}"
+echo -e " ${U}└──────────────────────────────────────────┘${N}"
+loading 'load'
+berhasil
+}
+
+# Lokasi file menu.zip lokal
+LOCAL_MENU="/etc/alawivpn/menu.zip"
+
+# Fungsi untuk menghitung hash SHA256 dari file lokal
+calculate_sha256() {
+    sha256sum "$LOCAL_MENU" | awk '{print $1}'
+}
+
+# Fungsi untuk mengunduh menu.zip terbaru dari GitHub
+download_menu_zip() {
+    curl -sS -o "$LOCAL_MENU" "$REPOSC/menu/menu.zip"
+}
+
+# Mengambil versi dari GitHub
+versisc=$(cat /etc/xray/versisc)
+versigh=$(curl -sS "$REPOSC/versi")
+
+# Memeriksa apakah file menu.zip lokal ada
+if [[ ! -f "$LOCAL_MENU" ]]; then
+    download_menu_zip
+fi
+
+# Menghitung hash SHA256 lokal dan dari GitHub
+local_sha256=$(calculate_sha256)
+remote_sha256=$(curl -sS "$REPOSC/menu/menu.zip" | sha256sum | awk '{print $1}')
+
+# Membandingkan hash
+if [[ "$local_sha256" == "$remote_sha256" ]]; then
+    VERSI1="$versisc"
+    VERSI2="Not Available"
+    SCU="$R"
+else
+    VERSI1="$versisc"
+    VERSI2="Available"
+    SCU="$G"
+fi
+
+if [[ $certificate -le 5 ]]; then
+    CC=$R
+else
+    CC=$G
+fi
+certi=$(echo $certificate | sed ':a;s/\B[0-9]\{3\}\>/.&/;ta')
+certificates="$certi (${CC}Hari${W})"
+EXPSC="$Exp2 $sts"
+
+echo
+echo -e " $U ╔═══════════════════════════════════════════════════════╗$N"
+echo -e " $U ║ $O               ● ALAWIVPN TUNNELING ●                $N $U║$N"
+echo -e " $U ╚═══════════════════════════════════════════════════════╝$N"
+echo -e " $U ╔═══════════════════════════════════════════════════════╗"
+echo -e " $U ║$W ● VPS OS     : $(printf "%-39s%-1s\n" "$MODEL2" "$U║$N")"
+echo -e " $U ║$W ● VPS RAM    : $(printf "%-39s%-1s\n" "$VPSRAM" "$U║$N")"
+echo -e " $U ║$W ● VPS DATE   : $(printf "%-39s%-1s\n" "$DATE2" "$U║$N")"
+echo -e " $U ║$W ● VPS UPTIME : $(printf "%-39s%-1s\n" "$UPTIME" "$U║$N")"
+echo -e " $U ║$W ● VPS ISP    : $(printf "%-39s%-1s\n" "$ISP" "$U║$N")"
+echo -e " $U ║$W ● VPS City   : $(printf "%-39s%-1s\n" "$CITY" "$U║$N")"
+echo -e " $U ║$W ● VPS IP     : $(printf "%-39s%-1s\n" "$MYIP" "$U║$N")"
+echo -e " $U ║$W ● VPS DOMAIN : $(printf "%-39s%-1s\n" "$DOMAIN" "$U║$N")"
+echo -e " $U ║$W ● SC OWNER   : $(printf "%-39s%-1s\n" "$SCOWNER" "$U║$N")"
+echo -e " $U ╚═══════════════════════════════════════════════════════╝$N"
+echo -e " $U ╔═══════════════════════════════════════════════════════╗$N"
+echo -e " $U ║$W   $(printf "%-10s${O1}%-3s${W}%-1s    %-9s${O2}%-3s${W}%-1s    %-10s${O3}%-3s${W}%-4s%-1s\n" "[ SSHWS : " "$SSHWS" "]" "[ XRAY : " "$XRAY" "]" "[ NGINX : " "$NGINX" "]" "$U║$N")"
+echo -e " $U ╚═══════════════════════════════════════════════════════╝$N"
+echo -e " $U ╔═══════════════════════════════════════════════════════╗$N"
+echo -e " $U ║$W     SSHWS        VMESS        VLESS        TROJAN     $U║$N"
+echo -e " $U ║$G       $(printf "%-13s%-13s%-13s%-9s%-1s\n" "$total_ssh" "$vmess" "$vless" "$trtls" "$U║$N")"
+echo -e " $U ╚═══════════════════════════════════════════════════════╝"
+echo -e " $U ╔════════════════════$W ● LIST MENU ● $U════════════════════╗$N"
+echo -e " $U ║$W [${U}01${W}] ${U}●${W} SSHWS       (${U}Menu${W}) $U║$W [${U}06${W}] ${U}●${W} BOT AKUN    (${U}Menu${W}) $U║$N"
+echo -e " $U ║$W [${U}02${W}] ${U}●${W} VMESS       (${U}Menu${W}) $U║$W [${U}07${W}] ${U}●${W} BOT NOTIF   (${U}Menu${W}) $U║$N"
+echo -e " $U ║$W [${U}03${W}] ${U}●${W} VLESS       (${U}Menu${W}) $U║$W [${U}08${W}] ${U}●${W} REBOOT      (${U}Menu${W}) $U║$N"
+echo -e " $U ║$W [${U}04${W}] ${U}●${W} TROJAN      (${U}Menu${W}) $U║$W [${U}09${W}] ${U}●${W} SYSTEM      (${U}Menu${W}) $U║$N"
+echo -e " $U ║$W [${U}05${W}] ${U}●${W} RUNNING     (${U}Menu${W}) $U║$W [${U}10${W}] ${U}●${W} BACKUP      (${U}Menu${W}) $U║$N"
+echo -e " $U ╚═══════════════════════════╩═══════════════════════════╝$N"
+echo -e " $U ╔═══════════╦═══════════════════════════════════════════╗$N"
+echo -e " $U ║$W   Total   $U║$W   Today       Yesterday     Month         $U║$N"
+echo -e " $U ║$W Bandwidth $U║$G   $(printf "%-11s %-13s %-13s %-5s\n" "$today_val" "$yesterday_val" "$month_val" "$U║$N")"
+echo -e " $U ╚═══════════╩═══════════════════════════════════════════╝$N"
+echo -e " $U        ╔═════════════════════════════════════════╗$N"
+echo -e " $U        ║$W ● SC Update  : $(printf "$SCU%-25s%-1s\n" "$VERSI2" "$U║$N")"
+echo -e " $U        ║$W ● SC Versi   : $(printf "%-25s%-1s\n" "$VERSI1" "$U║$N")"
+echo -e " $U        ║$W ● SC Client  : $(printf "%-25s%-1s\n" "$author" "$U║$N")"
+echo -e " $U        ║$W ● SC Durasi  : $(printf "%-41s%-1s\n" "$certificates" "$U║$N")"
+echo -e " $U        ║$W ● SC Expired : $(printf "%-41s%-1s\n" "$EXPSC" "$U║$N")"
+echo -e " $U        ╚═════════════════════════════════════════╝$N"
+echo -e ""
+echo -ne "  ${W}Pilih ${U}1 ${W}- ${U}10 ${W}/ ${U}11 ${W}( ${U}update${W} )${U} : ${W}"; read opt
+case $opt in
+    01 | 1) clear ; m-sshovpn ;;
+    02 | 2) clear ; m-vmess ;;
+    03 | 3) clear ; m-vless ;;
+    04 | 4) clear ; m-trojan ;;
+    05 | 5) clear ; running ;;
+    06 | 6) clear ; m-bot ;;
+    07 | 7) clear ; m-bot2  ;;
+    08 | 8) clear ; mulai_ulang ;;
+    09 | 9) clear ; m-system ;;
+    10 | 10) clear ; m-backup ;;
+    11) clear ; update ;;
+    99) clear ; reuuid ;;
+    00 | 0) clear ; menu ;;
+    *) clear ; menu ;;
+esac
