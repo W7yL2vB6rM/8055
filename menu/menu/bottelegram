@@ -25,6 +25,7 @@ checking_sc() {
         systemctl stop xray
         systemctl stop ws-stunnel
         dilarang
+        exit 1
     else
         echo -ne
     fi
