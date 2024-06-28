@@ -8,9 +8,9 @@ NC='\e[0m'
 green() { echo -e "\\033[32;1m${*}\\033[0m"; }
 red() { echo -e "\\033[31;1m${*}\\033[0m"; }
 W='\e[1;37m'
-green "        Menginstall tools penting!"
+green "              Menginstall tools penting!"
 sleep 0.5
-green "             Proses dimulai..."
+green "                   Proses dimulai..."
 sleep 0.5
 apt update -y
 apt upgrade -y
