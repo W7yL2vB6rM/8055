@@ -53,13 +53,16 @@ echo
 garis "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 judul "            GANTI UUID BY ALAWIVPN            "
 garis "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+tebal "Ketik ${G}x${W} untuk kembali ke menu"
 echo
 until [[ -n "$old_uuid" && $(grep -q "\"$old_uuid\"" "$config_file"; echo $?) -eq 0 ]]; do
     echo -ne " ${N}Masukkan ${G}UUID${N} lama: ${G}"; read old_uuid
+    if [[ $old_uuid == "x" ]]; then menu ; fi
 done
 
 until [[ -n "$new_uuid" && ! $(grep -q "\"$new_uuid\"" "$config_file"; echo $?) -eq 0 ]]; do
     echo -ne " ${N}Masukkan ${G}UUID${N} baru: ${G}"; read new_uuid
+    if [[ $old_uuid == "x" ]]; then menu ; fi
 done
 
 sed -i "s/$old_uuid/$new_uuid/g" $config_file
