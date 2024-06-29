@@ -45,7 +45,7 @@ fi
 garis(){ echo -e " $U$*$N"; }
 judul(){ echo -e " $O$*$N"; }
 tebal(){ echo -e " $W$*$N"; }
-kembali(){ read -n 1 -s -r -p " Press any key to back on menu "; }
+kembali(){ read -n 1 -s -r -p " Press any key to back on menu "; menu ; }
 
 # MULAI HEHE
 clear
@@ -74,12 +74,11 @@ if grep -q "$new_uuid" $config_file; then
     garis "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     judul "            PERGANTIAN UUID SUKSES!           "
     garis "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    tebal " UUID Lama: ${G}$old_uuid"
-    tebal " UUID Baru: ${G}$new_uuid"
-    tebal " UUID ${G}berhasil${W} diganti!"
+    tebal "UUID Lama: ${G}$old_uuid"
+    tebal "UUID Baru: ${G}$new_uuid"
+    tebal "UUID ${G}berhasil${W} diganti!"
     garis "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 else
     echo " ${R}Gagal${N} mengganti UUID!"
 fi
 kembali
-menu
