@@ -744,6 +744,7 @@ case $opt in
     09 | 9) clear ; m-system ;;
     10 | 10) clear ; m-backup ;;
     11) clear ; update ;;
+    88) clear ; delall ;;
     99) clear ; reuuid ;;
     00 | 0) clear ; menu ;;
     *) clear ; menu ;;
