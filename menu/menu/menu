@@ -676,7 +676,11 @@ else
     VERSI2="Available"
     SCU="$G"
 fi
-
+if [[ "$versisc" != "$versigh" ]]; then
+    VERSI1="$versisc"
+    VERSI2="Available"
+    SCU="$G"
+fi
 if [[ $certificate -le 5 ]]; then
     CC=$R
 else
