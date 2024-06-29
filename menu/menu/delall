@@ -1,0 +1,57 @@
+#!/bin/bash
+
+# Lokasi file
+ssh_file="/etc/xray/ssh"
+config_file="/etc/xray/config.json"
+
+# Hapus akun SSH
+grep '^### ' $ssh_file | while read -r line; do
+    Pengguna=$(echo "$line" | cut -d ' ' -f 2)
+    sed -i "/^### $Pengguna /d" $ssh_file
+    rm /home/vps/public_html/ssh-$Pengguna.txt >/dev/null 2>&1
+    rm /etc/xray/sshx/${Pengguna}IP >/dev/null 2>&1
+    rm /etc/xray/sshx/${Pengguna}login >/dev/null 2>&1
+    if getent passwd $Pengguna > /dev/null 2>&1; then
+        userdel $Pengguna > /dev/null 2>&1
+        echo "SSH user $Pengguna was removed."
+    else
+        echo "Failure: SSH user $Pengguna not exist."
+    fi
+done
+
+# Hapus akun VMess, VLESS, dan Trojan
+for protocol in "vm vmg" "vl vlg" "tr trg"; do
+    for code in $protocol; do
+        grep "^#$code " $config_file | while read -r line; do
+            user=$(echo "$line" | cut -d ' ' -f 2)
+            exp=$(echo "$line" | cut -d ' ' -f 3)
+
+            sed -i "/^#$code $user $exp/,/^},{/d" $config_file
+
+            case $code in
+                vm|vmg)
+                    dir="/etc/vmess"
+                    ;;
+                vl|vlg)
+                    dir="/etc/vless"
+                    ;;
+                tr|trg)
+                    dir="/etc/trojan"
+                    ;;
+            esac
+
+            rm $dir/${user}IP >/dev/null 2>&1
+            rm /home/vps/public_html/${code}-${user}.txt >/dev/null 2>&1
+            rm $dir/${user}login >/dev/null 2>&1
+
+            echo "User $user for protocol $code was removed."
+        done
+    done
+done
+echo -n > /etc/vmess/akundelete
+echo -n > /etc/vless/akundelete
+echo -n > /etc/trojan/akundelete
+echo -n > /etc/vmess/listlock
+echo -n > /etc/vless/listlock
+echo -n > /etc/xray/sshx/listlock
+echo -n > /etc/trojan/listlock
