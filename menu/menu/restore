@@ -91,7 +91,7 @@ ISP=$(cat /etc/xray/isp)
 CITY=$(cat /etc/xray/city)
 TEKS="
 ━━━━━━━━━━━━━━━━━━━━━━━
-  <b>☘ RESTORE VPS COMPLETED ☘<b>
+  <b>☘ RESTORE VPS COMPLETED ☘</b>
 ━━━━━━━━━━━━━━━━━━━━━━━
 <b>● IP :</b> <code>$IP</code>
 <b>● Old Host :</b> <code>$domain1</code>
