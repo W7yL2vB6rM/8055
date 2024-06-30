@@ -96,19 +96,19 @@ function add-host(){
 		wget -q ${REPOSC}/slowdns/installsl.sh && chmod +x installsl.sh && ./installsl.sh
 	}
 	clear
-	echo -e "$COLOR1┌──────────────────────────────────────────┐${NC}"
-	echo -e "$COLOR1│ ${WH}Please select a your Choice to Set Domain              ${NC}"
-	echo -e "$COLOR1└──────────────────────────────────────────┘${NC}"
-	echo -e "$COLOR1┌──────────────────────────────────────────┐${NC}"
-	echo -e "$COLOR1│  [ 1 ]  ${WH}Domain kamu Sendri    ${NC}"
-	echo -e "$COLOR1└──────────────────────────────────────────┘${NC}"
+	echo -e "${U}┌──────────────────────────────────────────┐${N}"
+	echo -e "${U}│${W}       Please select a your Choice        ${U}│${N}"
+	echo -e "${U}└──────────────────────────────────────────┘${N}"
+	echo -e "${U}┌──────────────────────────────────────────┐${N}"
+	echo -e "${U}│${N} [${U}01${N}] Domain kamu Sendri                  ${U}│${N}"
+	echo -e "${U}└──────────────────────────────────────────┘${N}"
 	until [[ $dns =~ ^[0-9]+$ ]]; do
     	read -p " Please select numbers 1 : " dns
 	done
 	if [[ $dns == "1" ]]; then
     	echo
 	    until [[ $dnss =~ ^[a-zA-Z0-9_.-]+$ ]]; do
-    	    read -rp " Masukan domain kamu Disini : " -e dnss
+    	    read -rp " Masukan domain kamu Di sini : " -e dnss
 	    done
 	    echo
     	echo "$dnss" > /etc/xray/domain
@@ -117,11 +117,11 @@ function add-host(){
 	    sed -i "s/^DOMAIN=.*/DOMAIN=\"$dnss\"/" /usr/bin/kyt/var.txt
         systemctl restart kyt
         echo " Domain sudah diganti."
-        echo -ne " Apakah mau cert domain? (y/n) : "; read yesno
+        echo -ne " Apakah mau ${G}cert${N} domain? (${G}y${N}/${G}n${N}) : "; read yesno
         if [[ $yesno == "y" ]]; then
             certv2ray
         elif [[ $yesno == "n" ]]; then
-            read -n 1 -s -r -p " Press any key to Back Menu"
+            read -n 1 -s -r -p " Press any key to Back on Menu"
         	menu
         else
             menu
@@ -220,40 +220,40 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 	elif test $x -eq 9; then
 		if [ ! -e /etc/log-reboot.txt ]; then
 			clear
-			echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-			echo -e "$COLOR1 ${NC} ${COLBG1}       ${WH} ● AUTO-REBOOT ●        ${NC} $COLOR1 $NC"
-			echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+			echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
+			echo -e "${U} ${N} ${O}        ● AUTO-REBOOT ●        ${N} ${U} $N"
+			echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 			echo -e ""
 			echo "No reboot activity found"
 			echo -e ""
-			echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+			echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 			echo ""
 			read -n 1 -s -r -p "Press any key to back on menu"
 			auto-reboot
 		else
 			clear
-			echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-			echo -e "$COLOR1 ${NC} ${COLBG1}        ${WH}● AUTO-REBOOT ●        ${NC} $COLOR1 $NC"
-			echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+			echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
+			echo -e "${U} ${N} ${O}        ${W}● AUTO-REBOOT ●        ${N} ${U} $N"
+			echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 			echo -e ""
 			echo 'LOG REBOOT'
 			cat /etc/log-reboot.txt
 			echo -e ""
-			echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+			echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 			echo ""
 			read -n 1 -s -r -p "Press any key to back on menu"
 			auto-reboot
 		fi
 	elif test $x -eq 10; then
 		clear
-		echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-		echo -e "$COLOR1 ${NC} ${COLBG1}        ${WH}● AUTO-REBOOT ●        ${NC} $COLOR1 $NC"
-		echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+		echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
+		echo -e "${U} ${N} ${O}        ${W}● AUTO-REBOOT ●        ${N} ${U} $N"
+		echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 		echo -e ""
 		echo "" > /etc/log-reboot.txt
 		echo "Auto Reboot Log successfully deleted!"
 		echo -e ""
-		echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+		echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 		echo ""
 		read -n 1 -s -r -p "Press any key to back on menu"
 		auto-reboot
@@ -272,156 +272,156 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 function bw(){
 clear
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}      ● BANDWITH MONITOR ●         ${NC} $COLOR1 $NC"
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
+echo -e "${U} ${N} ${O}      ● BANDWITH MONITOR ●         ${N} ${U} $N"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 echo -e ""
-echo -e " ${WH}[${COLOR1}●1${WH}]${NC} ${COLOR1} Lihat Total Bandwith Tersisa"
-echo -e " ${WH}[${COLOR1}●2${WH}]${NC} ${COLOR1} Tabel Penggunaan Setiap 5 Menit"
-echo -e " ${WH}[${COLOR1}●3${WH}]${NC} ${COLOR1} Tabel Penggunaan Setiap Jam"
-echo -e " ${WH}[${COLOR1}●4${WH}]${NC} ${COLOR1} Tabel Penggunaan Setiap Hari"
-echo -e " ${WH}[${COLOR1}●5${WH}]${NC} ${COLOR1} Tabel Penggunaan Setiap Bulan"
-echo -e " ${WH}[${COLOR1}●6${WH}]${NC} ${COLOR1} Tabel Penggunaan Setiap Tahun"
-echo -e " ${WH}[${COLOR1}●7${WH}]${NC} ${COLOR1} Tabel Penggunaan Tertinggi"
-echo -e " ${WH}[${COLOR1}●8${WH}]${NC} ${COLOR1} Statistik Penggunaan Setiap Jam"
-echo -e " ${WH}[${COLOR1}●9${WH}]${NC} ${COLOR1} Lihat Penggunaan Aktif Saat Ini"
-echo -e " ${WH}[${COLOR1}10${WH}]${NC} ${COLOR1} Lihat Trafik Penggunaan Aktif Saat Ini [5s]"
+echo -e " ${W}[${U}●1${W}]${N} ${U} Lihat Total Bandwith Tersisa"
+echo -e " ${W}[${U}●2${W}]${N} ${U} Tabel Penggunaan Setiap 5 Menit"
+echo -e " ${W}[${U}●3${W}]${N} ${U} Tabel Penggunaan Setiap Jam"
+echo -e " ${W}[${U}●4${W}]${N} ${U} Tabel Penggunaan Setiap Hari"
+echo -e " ${W}[${U}●5${W}]${N} ${U} Tabel Penggunaan Setiap Bulan"
+echo -e " ${W}[${U}●6${W}]${N} ${U} Tabel Penggunaan Setiap Tahun"
+echo -e " ${W}[${U}●7${W}]${N} ${U} Tabel Penggunaan Tertinggi"
+echo -e " ${W}[${U}●8${W}]${N} ${U} Statistik Penggunaan Setiap Jam"
+echo -e " ${W}[${U}●9${W}]${N} ${U} Lihat Penggunaan Aktif Saat Ini"
+echo -e " ${W}[${U}10${W}]${N} ${U} Lihat Trafik Penggunaan Aktif Saat Ini [5s]"
 echo -e ""
-echo -e " [\e[31m●0${WH}]${NC} ${COLOR1} \e[31mBACK TO MENU${NC}"
-echo -e " [\e[31m●x${WH}]${NC} ${COLOR1} Keluar"
+echo -e " [\e[31m●0${W}]${N} ${U} \e[31mBACK TO MENU${N}"
+echo -e " [\e[31m●x${W}]${N} ${U} Keluar"
 echo -e ""
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 echo -e ""
 read -p " Select menu : " opt
 echo -e ""
 case $opt in
 1)
 clear
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1} ● TOTAL BANDWITH SERVER TERSISA ● ${NC} $COLOR1 $NC"
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
+echo -e "${U} ${N} ${O} ● TOTAL BANDWITH SERVER TERSISA ● ${N} ${U} $N"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 echo -e ""
 vnstat
 echo -e ""
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 echo -e ""
 read -n 1 -s -r -p "Press any key to back on menu"
 bw
 ;;
 2)
 clear
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1} ● TOTAL BANDWITH SETIAP 5 MENIT ● ${NC} $COLOR1 $NC"
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
+echo -e "${U} ${N} ${O} ● TOTAL BANDWITH SETIAP 5 MENIT ● ${N} ${U} $N"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 echo -e ""
 vnstat -5
 echo -e ""
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 echo -e ""
 read -n 1 -s -r -p "Press any key to back on menu"
 bw
 ;;
 3)
 clear
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}   ● TOTAL BANDWITH SETIAP JAM ●   ${NC} $COLOR1 $NC"
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
+echo -e "${U} ${N} ${O}   ● TOTAL BANDWITH SETIAP JAM ●   ${N} ${U} $N"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 echo -e ""
 vnstat -h
 echo -e ""
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 echo -e ""
 read -n 1 -s -r -p "Press any key to back on menu"
 bw
 ;;
 4)
 clear
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}  ● TOTAL BANDWITH SETIAP HARI ●   ${NC} $COLOR1 $NC"
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
+echo -e "${U} ${N} ${O}  ● TOTAL BANDWITH SETIAP HARI ●   ${N} ${U} $N"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 echo -e ""
 vnstat -d
 echo -e ""
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 echo -e ""
 read -n 1 -s -r -p "Press any key to back on menu"
 bw
 ;;
 5)
 clear
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}  ● TOTAL BANDWITH SETIAP BULAN ●  ${NC} $COLOR1 $NC"
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
+echo -e "${U} ${N} ${O}  ● TOTAL BANDWITH SETIAP BULAN ●  ${N} ${U} ${N}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 echo -e ""
 vnstat -m
 echo -e ""
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 echo -e ""
 read -n 1 -s -r -p "Press any key to back on menu"
 bw
 ;;
 6)
 clear
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}  ● TOTAL BANDWITH SETIAP TAHUN ●  ${NC} $COLOR1 $NC"
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
+echo -e "${U} ${N} ${O}  ● TOTAL BANDWITH SETIAP TAHUN ●  ${N} ${U} ${N}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 echo -e ""
 vnstat -y
 echo -e ""
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 echo -e ""
 read -n 1 -s -r -p "Press any key to back on menu"
 bw
 ;;
 7)
 clear
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}    ● TOTAL BANDWITH TERTINGGI ●   ${NC} $COLOR1 $NC"
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
+echo -e "${U} ${N} ${O}    ● TOTAL BANDWITH TERTINGGI ●   ${N} ${U} ${N}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 echo -e ""
 vnstat -t
 echo -e ""
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 echo -e ""
 read -n 1 -s -r -p "Press any key to back on menu"
 bw
 ;;
 8)
 clear
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1} ● STATISTIK TERPAKAI SETIAP JAM ● ${NC} $COLOR1 $NC"
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
+echo -e "${U} ${N} ${O} ● STATISTIK TERPAKAI SETIAP JAM ● ${N} ${U} ${N}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 echo -e ""
 vnstat -hg
 echo -e ""
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 echo -e ""
 read -n 1 -s -r -p "Press any key to back on menu"
 bw
 ;;
 9)
 clear
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}     ● LIVE BANDWITH SAAT INI ●    ${NC} $COLOR1 $NC"
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
+echo -e "${U} ${N} ${O}     ● LIVE BANDWITH SAAT INI ●    ${N} ${U} ${N}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 echo -e   " Press [ Ctrl+C ] ● To-Exit"
 echo -e ""
 vnstat -l
 echo -e ""
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 echo -e ""
 read -n 1 -s -r -p "Press any key to back on menu"
 bw
 ;;
 10)
 clear
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}● LIVE TRAFIK PENGGUNAAN BANDWITH ●${NC} $COLOR1 $NC"
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
+echo -e "${U} ${N} ${O}● LIVE TRAFIK PENGGUNAAN BANDWITH ●${N} ${U} ${N}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 echo -e ""
 vnstat -tr
 echo -e ""
-echo -e "${COLOR1}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${U}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
 echo -e ""
 read -n 1 -s -r -p "Press any key to back on menu"
 bw
@@ -533,16 +533,16 @@ menu
 }
 function m-bot2(){
 clear
-echo -e "$COLOR1┌──────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1  ${WH}Please select a Bot type below                 ${NC}"
-echo -e "$COLOR1└──────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1┌──────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1  [ 1 ] ${WH}Buat/Edit BOT INFO Multi Login SSH, XRAY & TRANSAKSI   ${NC}"
+echo -e "${U}┌──────────────────────────────────────────┐${N}"
+echo -e "${U}  ${W}Please select a Bot type below                 ${N}"
+echo -e "${U}└──────────────────────────────────────────┘${N}"
+echo -e "${U}┌──────────────────────────────────────────┐${N}"
+echo -e "${U}  [ 1 ] ${W}Buat/Edit BOT INFO Multi Login SSH, XRAY & TRANSAKSI   ${N}"
 echo -e ""
-echo -e "$COLOR1  [ 2 ] ${WH}Buat/Edit BOT INFO Create User & Lain Lain    ${NC}"
+echo -e "${U}  [ 2 ] ${W}Buat/Edit BOT INFO Create User & Lain Lain    ${N}"
 echo -e ""
-echo -e "$COLOR1  [ 3 ] ${WH}Buat/Edit BOT INFO Backup Telegram    ${NC}"
-echo -e "$COLOR1└──────────────────────────────────────────┘${NC}"
+echo -e "${U}  [ 3 ] ${W}Buat/Edit BOT INFO Backup Telegram    ${N}"
+echo -e "${U}└──────────────────────────────────────────┘${N}"
 read -p "   Please select numbers 1-3 or Any Button(Random) to exit : " bot
 echo ""
 if [[ $bot == "1" ]]; then
@@ -553,7 +553,7 @@ cd /etc/perlogin
 touch token
 touch id
 echo -e ""
-echo -e "$COLOR1 [ INFO ] ${WH}Create for database Multi Login"
+echo -e "${U} [ INFO ] ${W}Create for database Multi Login"
 read -rp "Enter Token (Creat on @BotFather) : " -e token2
 echo "$token2" > token
 read -rp "Enter Your Id (Creat on @userinfobot)  : " -e idat
@@ -569,7 +569,7 @@ cd /etc/per
 touch token
 touch id
 echo -e ""
-echo -e "$COLOR1 [ INFO ] ${WH}Create for database Akun Dan Lain Lain"
+echo -e "${U} [ INFO ] ${W}Create for database Akun Dan Lain Lain"
 read -rp "Enter Token (Creat on @BotFather) : " -e token3
 echo "$token3" > token
 read -rp "Enter Your Id (Creat on @userinfobot)  : " -e idat2
@@ -582,7 +582,7 @@ clear
 rm -rf /usr/bin/token
 rm -rf /usr/bin/idchat
 echo -e ""
-echo -e "$COLOR1 [ INFO ] ${WH}Create for database Backup Telegram"
+echo -e "${U} [ INFO ] ${W}Create for database Backup Telegram"
 read -rp "Enter Token (Creat on @BotFather) : " -e token23
 echo "$token23" > /usr/bin/token
 read -rp "Enter Your Id (Creat on @userinfobot)  : " -e idchat
@@ -747,14 +747,14 @@ cp -r /usr/local/bin/xray /usr/local/bin/offixray &> /dev/null
 fi
 clear
 echo -e " "
-echo -e "$COLOR1┌──────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│ ${WH}Please select a your Choice to Set CORE MENU           ${NC}"
-echo -e "$COLOR1└──────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1┌──────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│  [ 1 ]  ${WH}XRAY CORE OFFICIAL       ${NC}"
-echo -e "$COLOR1│"
-echo -e "$COLOR1│  [ 2 ]  ${WH}XRAY CORE MOD    ${NC}"
-echo -e "$COLOR1└──────────────────────────────────────────┘${NC}"
+echo -e "${U}┌──────────────────────────────────────────┐${N}"
+echo -e "${U}│ ${W}Please select a your Choice to Set CORE MENU           ${N}"
+echo -e "${U}└──────────────────────────────────────────┘${N}"
+echo -e "${U}┌──────────────────────────────────────────┐${N}"
+echo -e "${U}│  [ 1 ]  ${W}XRAY CORE OFFICIAL       ${N}"
+echo -e "${U}│"
+echo -e "${U}│  [ 2 ]  ${W}XRAY CORE MOD    ${N}"
+echo -e "${U}└──────────────────────────────────────────┘${N}"
 until [[ $core =~ ^[0-9]+$ ]]; do
 read -p "   Please select numbers 1-2 or Any Button(EXIT) : " core
 done
@@ -764,7 +764,7 @@ echo -e " "
 cp -r /usr/local/bin/offixray /usr/local/bin/xray &> /dev/null
 chmod 755 /usr/local/bin/xray
 systemctl restart xray
-echo -e "$COLOR1 [ INFO ] ${WH}Succes Change Xray Core Official"
+echo -e "${U} [ INFO ] ${W}Succes Change Xray Core Official"
 fi
 if [[ $core == "2" ]]; then
 clear
@@ -772,27 +772,27 @@ echo -e " "
 cp -r /usr/local/bin/modxray /usr/local/bin/xray &> /dev/null
 chmod 755 /usr/local/bin/xray
 systemctl restart xray
-echo -e  "$COLOR1 [ INFO ] ${WH}Succes Change Xray Core Mod "
+echo -e  "${U} [ INFO ] ${W}Succes Change Xray Core Mod "
 fi
 read -n 1 -s -r -p "Press any key to back on menu"
 menu
 }
 function dobot(){
 clear
-echo -e "$COLOR1┌──────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│ ${WH}Please select a your Choice to Set           ${NC}"
-echo -e "$COLOR1└──────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1┌──────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│  [ 1 ]  ${WH}INSTAL BOT CRATE AKUN DIGITAL OCEAN      ${NC}"
-echo -e "$COLOR1│"
-echo -e "$COLOR1│  [ 2 ]  ${WH}COPY BOT CREATE AKUN DIGITAL OCEAN   ${NC}"
+echo -e "${U}┌──────────────────────────────────────────┐${N}"
+echo -e "${U}│ ${W}Please select a your Choice to Set           ${N}"
+echo -e "${U}└──────────────────────────────────────────┘${N}"
+echo -e "${U}┌──────────────────────────────────────────┐${N}"
+echo -e "${U}│  [ 1 ]  ${W}INSTAL BOT CRATE AKUN DIGITAL OCEAN      ${N}"
+echo -e "${U}│"
+echo -e "${U}│  [ 2 ]  ${W}COPY BOT CREATE AKUN DIGITAL OCEAN   ${N}"
 if [[ -e /etc/cron.d/bantwidth ]]; then
 echo -ne
 else
-echo -e "$COLOR1│"
-echo -e "$COLOR1│  [ 3 ]  ${WH}SET BANTWIDTH BUAT JUALAN DIGITAL OCEAN${NC}"
+echo -e "${U}│"
+echo -e "${U}│  [ 3 ]  ${W}SET BANTWIDTH BUAT JUALAN DIGITAL OCEAN${N}"
 fi
-echo -e "$COLOR1└──────────────────────────────────────────┘${NC}"
+echo -e "${U}└──────────────────────────────────────────┘${N}"
 until [[ $dobot =~ ^[0-9]+$ ]]; do
 read -p "   Please select numbers 1-3 or Any Button(BACK) : " dobot
 done
@@ -885,25 +885,25 @@ read -n 1 -s -r -p " Succes Change Press Any key to Back Menu"
 menu
 }
 clear
-echo -e " $COLOR1╔══════════════════════════════════════════════════════╗${NC}"
-echo -e " $COLOR1║${NC}${COLBG1}                   ${WH}● SYSTEM MENU ●                    ${NC}$COLOR1║ $NC"
-echo -e " $COLOR1╚══════════════════════════════════════════════════════╝${NC}"
-echo -e " $COLOR1╔══════════════════════════════════════════════════════╗${NC}"
-echo -e " $COLOR1║${NC} ${WH}[${COLOR1}01${WH}]${NC} ${COLOR1}● ${WH}CHANGE DOMAIN   ${WH}    ${WH}[${COLOR1}09${WH}]${NC} ${COLOR1}● ${WH}CHANGE BANNER ${WH}     $COLOR1║ $NC"
-echo -e " $COLOR1║${NC} ${WH}[${COLOR1}02${WH}]${NC} ${COLOR1}● ${WH}SPEEDTEST   ${WH}        ${WH}[${COLOR1}10${WH}]${NC} ${COLOR1}● ${WH}INSTALL ADBLOCK ${WH}   $COLOR1║ $NC"
-echo -e " $COLOR1║${NC} ${WH}[${COLOR1}03${WH}]${NC} ${COLOR1}● ${WH}AUTO REBOOT   ${WH}      ${WH}[${COLOR1}11${WH}]${NC} ${COLOR1}● ${WH}CHANGE  BOT INFO${WH}   $COLOR1║ $NC"
-echo -e " $COLOR1║${NC} ${WH}[${COLOR1}04${WH}]${NC} ${COLOR1}● ${WH}CHECK BANDWITH${WH}      ${WH}[${COLOR1}12${WH}]${NC} ${COLOR1}● ${WH}FIX NGINX OFF${WH}      $COLOR1║ $NC"
-echo -e " $COLOR1║${NC} ${WH}[${COLOR1}05${WH}]${NC} ${COLOR1}● ${WH}INSTALL WEBMIN${WH}      ${WH}[${COLOR1}13${WH}]${NC} ${COLOR1}● ${WH}CEK PERFORMA VPS ${WH}  $COLOR1║ $NC"
-echo -e " $COLOR1║${NC} ${WH}[${COLOR1}06${WH}]${NC} ${COLOR1}● ${WH}INSTALL TCP BBR ${WH}    ${WH}[${COLOR1}14${WH}]${NC} ${COLOR1}● ${WH}CHANGE CORE MENU${WH}   $COLOR1║ $NC"
-echo -e " $COLOR1║${NC} ${WH}[${COLOR1}07${WH}]${NC} ${COLOR1}● ${WH}GANTI TEMA WARNA${WH}    ${WH}[${COLOR1}15${WH}]${NC} ${COLOR1}● ${WH}BOT DO MENU ${WH}       $COLOR1║ $NC"
-echo -e " $COLOR1║${NC} ${WH}[${COLOR1}08${WH}]${NC} ${COLOR1}● ${WH}LIMIT SPEED${WH}         ${WH}[${COLOR1}16${WH}]${NC} ${COLOR1}● ${WH}GANTI NAMA CLIENT${WH}  $COLOR1║ $NC"
-echo -e " $COLOR1║${NC} ${WH}[${COLOR1}00${WH}]${NC} ${COLOR1}● ${WH}GO BACK $NC            ${WH}[${COLOR1}99${WH}]${NC} ${COLOR1}● ${WH}CLEAR RAM CACHE ${WH}   $COLOR1║ $NC"
-echo -e " $COLOR1╚══════════════════════════════════════════════════════╝${NC}"
+echo -e " ${U}╔══════════════════════════════════════════════════════╗${N}"
+echo -e " ${U}║${N}${O}                   ${W}● SYSTEM MENU ●                    ${N}${U}║ ${N}"
+echo -e " ${U}╚══════════════════════════════════════════════════════╝${N}"
+echo -e " ${U}╔══════════════════════════════════════════════════════╗${N}"
+echo -e " ${U}║${N} ${W}[${U}01${W}]${N} ${U}● ${W}CHANGE DOMAIN   ${W}    ${W}[${U}09${W}]${N} ${U}● ${W}CHANGE BANNER ${W}     ${U}║ ${N}"
+echo -e " ${U}║${N} ${W}[${U}02${W}]${N} ${U}● ${W}SPEEDTEST   ${W}        ${W}[${U}10${W}]${N} ${U}● ${W}INSTALL ADBLOCK ${W}   ${U}║ ${N}"
+echo -e " ${U}║${N} ${W}[${U}03${W}]${N} ${U}● ${W}AUTO REBOOT   ${W}      ${W}[${U}11${W}]${N} ${U}● ${W}CHANGE  BOT INFO${W}   ${U}║ ${N}"
+echo -e " ${U}║${N} ${W}[${U}04${W}]${N} ${U}● ${W}CHECK BANDWITH${W}      ${W}[${U}12${W}]${N} ${U}● ${W}FIX NGINX OFF${W}      ${U}║ ${N}"
+echo -e " ${U}║${N} ${W}[${U}05${W}]${N} ${U}● ${W}INSTALL WEBMIN${W}      ${W}[${U}13${W}]${N} ${U}● ${W}CEK PERFORMA VPS ${W}  ${U}║ ${N}"
+echo -e " ${U}║${N} ${W}[${U}06${W}]${N} ${U}● ${W}INSTALL TCP BBR ${W}    ${W}[${U}14${W}]${N} ${U}● ${W}CHANGE CORE MENU${W}   ${U}║ ${N}"
+echo -e " ${U}║${N} ${W}[${U}07${W}]${N} ${U}● ${W}GANTI TEMA WARNA${W}    ${W}[${U}15${W}]${N} ${U}● ${W}BOT DO MENU ${W}       ${U}║ ${N}"
+echo -e " ${U}║${N} ${W}[${U}08${W}]${N} ${U}● ${W}LIMIT SPEED${W}         ${W}[${U}16${W}]${N} ${U}● ${W}GANTI NAMA CLIENT${W}  ${U}║ ${N}"
+echo -e " ${U}║${N} ${W}[${U}00${W}]${N} ${U}● ${W}GO BACK ${N}            ${W}[${U}99${W}]${N} ${U}● ${W}CLEAR RAM CACHE ${W}   ${U}║ ${N}"
+echo -e " ${U}╚══════════════════════════════════════════════════════╝${N}"
 echo -e " ${U}╔═══════════════════════${W} ● BY${N} ● ${U}═══════════════════════╗ ${N}"
 cetak_judul
 echo -e " ${U}╚══════════════════════════════════════════════════════╝${N}"
 echo -e ""
-echo -ne " ${WH}Select menu ${COLOR1}: ${WH}"; read opt
+echo -ne " ${W}Select menu ${U}: ${W}"; read opt
 case $opt in
 01 |1) clear ; add-host ; exit ;;
 02 |2) clear ; speed2 ; exit ;;

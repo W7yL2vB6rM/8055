@@ -51,9 +51,9 @@ mkdir -p /var/lib/ >/dev/null 2>&1
 echo "IP=" >> /var/lib/ipvps.conf
 clear
 echo
-echo -e  "${C}┌──────────────────────────────────────────┐${N}"
-echo -e  "${C}│${W}            MASUKKAN NAMA KAMU            ${C}│${N}"
-echo -e  "${C}└──────────────────────────────────────────┘${N}"
+echo -e  "${C}╔══════════════════════════════════════════╗${N}"
+echo -e  "${C}║${W}            MASUKKAN NAMA KAMU            ${C}║${N}"
+echo -e  "${C}╚══════════════════════════════════════════╝${N}"
 echo " "
 until [[ $name =~ ^[a-zA-Z0-9_.-]+$ ]]; do
     read -rp "Masukan Nama Kamu Disini tanpa spasi : " -e name
@@ -75,16 +75,16 @@ echo -e "vmessh" > /etc/github/username
 function isikey(){
     clear
     echo
-    echo -e "${C}┌──────────────────────────────────────────┐${N}"
-    echo -e "${C}│${W}       MENU PILIHAN AKTIVASI SCRIPT       ${C}│${N}"
-    echo -e "${C}└──────────────────────────────────────────┘${N}"
-    echo -e "${C}┌──────────────────────────────────────────┐${N}"
-    echo -e "${C}│                                          │${N}"
-    echo -e "${C}│${W}  [${C}01${W}] TRIAL 1 HARI                       ${C}│${N}"
-    echo -e "${C}│                                          │${N}"
-    echo -e "${C}│${W}  [${C}02${W}] MEMBER SUDAH BELI                  ${C}│${N}"
-    echo -e "${C}│                                          │${N}"
-    echo -e "${C}└──────────────────────────────────────────┘${N}"
+    echo -e "${C}╔══════════════════════════════════════════╗${N}"
+    echo -e "${C}║${W}       MENU PILIHAN AKTIVASI SCRIPT       ${C}║${N}"
+    echo -e "${C}╚══════════════════════════════════════════╝${N}"
+    echo -e "${C}╔══════════════════════════════════════════╗${N}"
+    echo -e "${C}║                                          ║${N}"
+    echo -e "${C}║${W}  [${C}01${W}] TRIAL 1 HARI                       ${C}║${N}"
+    echo -e "${C}║                                          ║${N}"
+    echo -e "${C}║${W}  [${C}02${W}] MEMBER SUDAH BELI                  ${C}║${N}"
+    echo -e "${C}║                                          ║${N}"
+    echo -e "${C}╚══════════════════════════════════════════╝${N}"
     until [[ $key =~ ^[12]+$ ]]; do
         read -p "   Please select numbers 1 atau 2 : " key
     done
@@ -120,9 +120,9 @@ function isikey(){
     if [[ $key == "2" ]]; then
         clear
         echo
-        echo -e  "${C}┌──────────────────────────────────────────┐${N}"
-        echo -e  "${C}│${W}           MASUKKAN KEY LICENSE           ${C}│${N}"
-        echo -e  "${C}└──────────────────────────────────────────┘${N}"
+        echo -e  "${C}╔══════════════════════════════════════════╗${N}"
+        echo -e  "${C}║${W}           MASUKKAN KEY LICENSE           ${C}║${N}"
+        echo -e  "${C}╚══════════════════════════════════════════╝${N}"
         echo " "
         read -rp " Masukan Key Kamu di sini (Ctrl + C Exit) : " -e kode
 
@@ -311,16 +311,16 @@ res1() {
 cd
 clear
 echo
-echo -e " ${C}┌──────────────────────────────────────────┐${N}"
-echo -e " ${C}│${W}       MENU PILIHAN INPUT DOMAIN VPS      ${C}│${N}"
-echo -e " ${C}└──────────────────────────────────────────┘${N}"
-echo -e " ${C}┌──────────────────────────────────────────┐${N}"
-echo -e " ${C}│${W} [${C}01${W}] Domain kamu sendiri                 ${C}│${N}"
-echo -e " ${C}│                                          │${N}"
-echo -e " ${C}│${W} [${C}02${W}] Domain Yang Punya Script            ${C}│${N}"
-echo -e " ${C}│                                          │${N}"
-echo -e " ${C}│${W} [${C}03${W}] Domain Host & SlowDNS Sendiri       ${C}│${N}"
-echo -e " ${C}└──────────────────────────────────────────┘${N}"
+echo -e " ${C}╔══════════════════════════════════════════╗${N}"
+echo -e " ${C}║${W}       MENU PILIHAN INPUT DOMAIN VPS      ${C}║${N}"
+echo -e " ${C}╚══════════════════════════════════════════╝${N}"
+echo -e " ${C}╔══════════════════════════════════════════╗${N}"
+echo -e " ${C}║${W} [${C}01${W}] Domain kamu sendiri                 ${C}║${N}"
+echo -e " ${C}║                                          ║${N}"
+echo -e " ${C}║${W} [${C}02${W}] Domain Yang Punya Script            ${C}║${N}"
+echo -e " ${C}║                                          ║${N}"
+echo -e " ${C}║${W} [${C}03${W}] Domain Host & SlowDNS Sendiri       ${C}║${N}"
+echo -e " ${C}╚══════════════════════════════════════════╝${N}"
 until [[ $domain =~ ^[132]+$ ]]; do
     read -p " Masukkan pilihan kamu 1/2/3 : " domain
 done
@@ -353,12 +353,12 @@ fi
 if [[ $domain == "2" ]]; then
     clear
     echo
-    echo -e " ${C}┌──────────────────────────────────────────┐${N}"
-    echo -e " ${C}│${W}     MENU PILIHAN DOMAIN BAWAAN SCRIPT    ${C}│${N}"
-    echo -e " ${C}└──────────────────────────────────────────┘${N}"
-    echo -e " ${C}┌──────────────────────────────────────────┐${N}"
-    echo -e " ${C}│${W} [${C}01${W}] Domain xxx.alawivpn.cloud           ${C}│${N}"
-    echo -e " ${C}└──────────────────────────────────────────┘${N}"
+    echo -e " ${C}╔══════════════════════════════════════════╗${N}"
+    echo -e " ${C}║${W}     MENU PILIHAN DOMAIN BAWAAN SCRIPT    ${C}║${N}"
+    echo -e " ${C}╚══════════════════════════════════════════╝${N}"
+    echo -e " ${C}╔══════════════════════════════════════════╗${N}"
+    echo -e " ${C}║${W} [${C}01${W}] Domain xxx.alawivpn.cloud           ${C}║${N}"
+    echo -e " ${C}╚══════════════════════════════════════════╝${N}"
     until [[ $domain2 =~ ^[1-5]+$ ]]; do
         read -p " Masukkan pilihan angka 1 : " domain2
     done
@@ -387,9 +387,9 @@ if [[ $domain2 == "1" ]]; then
     sleep 1
     clear
     echo
-    echo -e " ${C}┌──────────────────────────────────────────┐${N}"
-    echo -e " ${C}│${W}   PROSES POINTING DOMAIN KE CLOUDFLARE   ${C}│"
-    echo -e " ${C}└──────────────────────────────────────────┘${N}"
+    echo -e " ${C}╔══════════════════════════════════════════╗${N}"
+    echo -e " ${C}║${W}   PROSES POINTING DOMAIN KE CLOUDFLARE   ${C}║"
+    echo -e " ${C}╚══════════════════════════════════════════╝${N}"
     res1
     clear
     rm /root/subdomainx
@@ -567,37 +567,37 @@ function ALAWIVPNANIMASI(){
         clear
     }
 
-    echo -e " ${C}┌──────────────────────────────────────────┐${N}"
-    echo -e " ${C}│${W}       PROSES INSTALASI SSH & OVPN        ${C}│${N}"
-    echo -e " ${C}└──────────────────────────────────────────┘${N}"
+    echo -e " ${C}╔══════════════════════════════════════════╗${N}"
+    echo -e " ${C}║${W}       PROSES INSTALASI SSH & OVPN        ${C}║${N}"
+    echo -e " ${C}╚══════════════════════════════════════════╝${N}"
     fun_bar 'res2'
-    echo -e " ${C}┌──────────────────────────────────────────┐${N}"
-    echo -e " ${C}│${W}          PROSES INSTALASI XRAY           ${C}│${N}"
-    echo -e " ${C}└──────────────────────────────────────────┘${N}"
+    echo -e " ${C}╔══════════════════════════════════════════╗${N}"
+    echo -e " ${C}║${W}          PROSES INSTALASI XRAY           ${C}║${N}"
+    echo -e " ${C}╚══════════════════════════════════════════╝${N}"
     fun_bar 'res3'
-    echo -e " ${C}┌──────────────────────────────────────────┐${N}"
-    echo -e " ${C}│${W}      PROSES INSTALASI SSH WEBSOCKET      ${C}│${N}"
-    echo -e " ${C}└──────────────────────────────────────────┘${N}"
+    echo -e " ${C}╔══════════════════════════════════════════╗${N}"
+    echo -e " ${C}║${W}      PROSES INSTALASI SSH WEBSOCKET      ${C}║${N}"
+    echo -e " ${C}╚══════════════════════════════════════════╝${N}"
     fun_bar 'res4'
-    echo -e " ${C}┌──────────────────────────────────────────┐${N}"
-    echo -e " ${C}│${W}       PROSES INSTALASI MENU BACKUP       ${C}│${N}"
-    echo -e " ${C}└──────────────────────────────────────────┘${N}"
+    echo -e " ${C}╔══════════════════════════════════════════╗${N}"
+    echo -e " ${C}║${W}       PROSES INSTALASI MENU BACKUP       ${C}║${N}"
+    echo -e " ${C}╚══════════════════════════════════════════╝${N}"
     fun_bar 'res5'
-    echo -e " ${C}┌──────────────────────────────────────────┐${N}"
-    echo -e " ${C}│${W}           PROSES INSTALASI OHP           ${C}│${N}"
-    echo -e " ${C}└──────────────────────────────────────────┘${N}"
+    echo -e " ${C}╔══════════════════════════════════════════╗${N}"
+    echo -e " ${C}║${W}           PROSES INSTALASI OHP           ${C}║${N}"
+    echo -e " ${C}╚══════════════════════════════════════════╝${N}"
     fun_bar 'res6'
-    echo -e " ${C}┌──────────────────────────────────────────┐${N}"
-    echo -e " ${C}│${W}       PROSES INSTALASI MENU EKSTRA       ${C}│${N}"
-    echo -e " ${C}└──────────────────────────────────────────┘${N}"
+    echo -e " ${C}╔══════════════════════════════════════════╗${N}"
+    echo -e " ${C}║${W}       PROSES INSTALASI MENU EKSTRA       ${C}║${N}"
+    echo -e " ${C}╚══════════════════════════════════════════╝${N}"
     fun_bar 'res7'
-    echo -e " ${C}┌──────────────────────────────────────────┐${N}"
-    echo -e " ${C}│${W}       PROSES INSTALASI UDP CUSTOM        ${C}│${N}"
-    echo -e " ${C}└──────────────────────────────────────────┘${N}"
+    echo -e " ${C}╔══════════════════════════════════════════╗${N}"
+    echo -e " ${C}║${W}       PROSES INSTALASI UDP CUSTOM        ${C}║${N}"
+    echo -e " ${C}╚══════════════════════════════════════════╝${N}"
     fun_bar 'res9'
-    echo -e " ${C}┌──────────────────────────────────────────┐${N}"
-    echo -e " ${C}│${W}          WAKTU INSTALASI SCRIPT          ${C}│${N}"
-    echo -e " ${C}└──────────────────────────────────────────┘${N}"
+    echo -e " ${C}╔══════════════════════════════════════════╗${N}"
+    echo -e " ${C}║${W}          WAKTU INSTALASI SCRIPT          ${C}║${N}"
+    echo -e " ${C}╚══════════════════════════════════════════╝${N}"
     STARTING "$(($(date +%s) - ${start}))" | tee -a log-install.txt
 }
 
@@ -628,22 +628,20 @@ function TERAKHIR(){
     EXP=$(( (d1 - d2) / 86400 ))
 
     TEXT="<code>
-┏━━━━━━━━━━━━━━━━━━━━━━━━━
-┃ ☘️ AUTOSCRIPT INSTALLED ☘️
-┗━━━━━━━━━━━━━━━━━━━━━━━━━
-┏━━━━━━━━━━━━━━━━━━━━━━━━━
-┃ USER : ${author}
-┃ IP   : ${MYIP}
-┃ HOST : ${domain}
-┃ ISP  : ${ISP}
-┃ CITY : ${CITY}
-┃ OS   : ${MODEL2}
-┃ RAM  : ${RAM}
-┃ EXP  : ${IZIN} (${EXP} Days)
-┗━━━━━━━━━━━━━━━━━━━━━━━━━
-┏━━━━━━━━━━━━━━━━━━━━━━━━━
-┃   ${TIME}
-┗━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ☘️ AUTOSCRIPT INSTALLED ☘️
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+☘️ USER : ${author}
+☘️ IP   : ${MYIP}
+☘️ HOST : ${domain}
+☘️ ISP  : ${ISP}
+☘️ CITY : ${CITY}
+☘️ OS   : ${MODEL2}
+☘️ RAM  : ${RAM}
+☘️ EXP  : ${IZIN} (${EXP} Days)
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+    ${TIME}
+━━━━━━━━━━━━━━━━━━━━━━━━━━
 </code>"'&reply_markup={"inline_keyboard":[[{"text":"☘️ ORDER","url":"https://t.me/alawivpn"},{"text":"GROUP ☘️","url":"https://t.me/configsantri"}]]}'
     curl -s --max-time $TIMES -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
 }
@@ -700,9 +698,9 @@ TERAKHIR
 FINISHING
 cd
 rm -rf *
-echo -e " ${C}┌──────────────────────────────────────────┐${N}"
-echo -e " ${C}│${W}      VPS AKAN REBOOT DALAM 3 DETIK       ${C}│${N}"
-echo -e " ${C}└──────────────────────────────────────────┘${N}"
+echo -e " ${C}╔══════════════════════════════════════════╗${N}"
+echo -e " ${C}║${W}      VPS AKAN REBOOT DALAM 3 DETIK       ${C}║${N}"
+echo -e " ${C}╚══════════════════════════════════════════╝${N}"
 tput civis
 for i in {3..1}
 do
