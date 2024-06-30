@@ -701,10 +701,10 @@ FINISHING
 cd
 rm -rf *
 echo -e " ${C}┌──────────────────────────────────────────┐${N}"
-echo -e " ${C}│${W}      VPS AKAN REBOOT DALAM 9 DETIK       ${C}│${N}"
+echo -e " ${C}│${W}      VPS AKAN REBOOT DALAM 3 DETIK       ${C}│${N}"
 echo -e " ${C}└──────────────────────────────────────────┘${N}"
 tput civis
-for i in {9..1}
+for i in {3..1}
 do
     echo -ne "\r  Reboot ${G}$i${N} detik lagi.."
     sleep 1
