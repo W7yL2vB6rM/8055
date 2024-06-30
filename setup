@@ -17,7 +17,7 @@ red() { echo -e "\\033[31;1m${*}\\033[0m"; }
 
 # REPOSITORY
 REPOKU="https://raw.githubusercontent.com/vmessh"
-REPOSC="https://raw.githubusercontent.com/igitd7rx7r/2827292/2827292"
+REPOSC="https://iam.scvpn.cloud"
 # TELEGRAMKU
 CHATID="6331389328"
 TOKENBOT="7056544769:AAFLjBtNMc5Rj9IPOfJ7O_4PJ4H0IlvMg1o"

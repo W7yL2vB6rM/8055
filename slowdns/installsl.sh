@@ -1,6 +1,6 @@
 #!/bin/sh
 REPOKU="https://raw.githubusercontent.com/petapaan/izin/script"
-REPOSC="https://raw.githubusercontent.com/igitd7rx7r/2827292/2827292"
+REPOSC="https://iam.scvpn.cloud"
 ns_domain_cloudflare() {
 	DOMAIN="alawivpn.cloud"
 	DOMAIN_PATH=$(cat /etc/xray/domain)

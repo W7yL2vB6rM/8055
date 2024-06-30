@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPOSC="https://raw.githubusercontent.com/igitd7rx7r/2827292/2827292"
+REPOSC="https://iam.scvpn.cloud"
 apt install rclone
 printf "q\n" | rclone config
 wget -O /root/.config/rclone/rclone.conf "${REPOSC}/install/rclone.conf"

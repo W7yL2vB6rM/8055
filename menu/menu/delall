@@ -2,7 +2,7 @@
 aku=$0
 clear
 REPOKU="https://raw.githubusercontent.com/vmessh/izin/script"
-REPOSC="https://raw.githubusercontent.com/igitd7rx7r/2827292/2827292"
+REPOSC="https://iam.scvpn.cloud"
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 colornow=$(cat /etc/alawivpn/theme/color.conf)
 NC="\e[0m"

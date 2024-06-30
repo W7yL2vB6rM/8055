@@ -1,6 +1,6 @@
 #!/bin/bash
 clear
-REPOSC="https://raw.githubusercontent.com/igitd7rx7r/2827292/2827292"
+REPOSC="https://iam.scvpn.cloud"
 red='\e[1;31m'
 green2='\e[1;32m'
 yell='\e[1;33m'

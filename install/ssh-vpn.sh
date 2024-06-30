@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # ==================================================
-REPOSC="https://raw.githubusercontent.com/igitd7rx7r/2827292/2827292"
+REPOSC="https://iam.scvpn.cloud"
 # etc
 apt dist-upgrade -y
 apt install netfilter-persistent -y
