@@ -1,5 +1,5 @@
-#!/bin/sh
-REPOKU="https://raw.githubusercontent.com/petapaan/izin/script"
+#!/bin/bash
+REPOKU="https://www.vmessh.cloud"
 REPOSC="https://iam.scvpn.cloud"
 ns_domain_cloudflare() {
 	DOMAIN="alawivpn.cloud"
