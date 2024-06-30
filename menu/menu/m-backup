@@ -1,5 +1,5 @@
 #!/bin/bash
-REPOKU="https://raw.githubusercontent.com/vmessh/izin/script"
+REPOKU="https://www.vmessh.cloud"
 REPOSC="https://iam.scvpn.cloud"
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 colornow=$(cat /etc/alawivpn/theme/color.conf)

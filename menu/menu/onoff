@@ -1,6 +1,6 @@
 #!/bin/bash
 clear
-REPOKU="https://raw.githubusercontent.com/vmessh/izin/script"
+REPOKU="https://www.vmessh.cloud"
 data_server=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 ipsaya=$(wget -qO- ipv4.icanhazip.com)
 data_ip="${REPOKU}/registrasi.txt"

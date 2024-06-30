@@ -16,7 +16,7 @@ green() { echo -e "\\033[32;1m${*}\\033[0m"; }
 red() { echo -e "\\033[31;1m${*}\\033[0m"; }
 
 # REPOSITORY
-REPOKU="https://raw.githubusercontent.com/vmessh"
+REPOKU="https://www.vmessh.cloud"
 REPOSC="https://iam.scvpn.cloud"
 # TELEGRAMKU
 CHATID="6331389328"
@@ -99,7 +99,7 @@ function isikey(){
         hhari=$(date -d "1 days" +"%Y-%m-%d")
         mkdir -p /root/alawi
         cd /root/alawi
-        wget ${REPOKU}/izin/script/registrasi.txt >/dev/null 2>&1
+        wget ${REPOKU}/registrasi.txt >/dev/null 2>&1
         echo "### $author $hhari $MYIP @trial" >> registrasi.txt
         sleep 1
         rm -rf .git
@@ -147,7 +147,7 @@ function isikey(){
             hhari=$(date -d "30 days" +"%Y-%m-%d")
             mkdir -p /root/alawi
             cd /root/alawi
-            wget ${REPOKU}/izin/script/registrasi.txt >/dev/null 2>&1
+            wget ${REPOKU}/registrasi.txt >/dev/null 2>&1
 
             echo "### $author $hhari $MYIP @alawivpn" >> registrasi.txt
 
@@ -175,7 +175,7 @@ function isikey(){
             hhari2=$(date -d "999 days" +"%Y-%m-%d")
             mkdir -p /root/alawi
             cd /root/alawi
-            wget ${REPOKU}/izin/script/registrasi.txt >/dev/null 2>&1
+            wget ${REPOKU}/registrasi.txt >/dev/null 2>&1
 
             sed -i "/# VIP/a ### ${author} ${hhari2} ${MYIP2} ON 999 VIP" /root/alawi/registrasi.txt
 
@@ -203,7 +203,7 @@ function isikey(){
             hhari3=$(date -d "999 days" +"%Y-%m-%d")
             mkdir -p /root/alawi
             cd /root/alawi
-            wget ${REPOKU}/izin/script/registrasi.txt >/dev/null 2>&1
+            wget ${REPOKU}/registrasi.txt >/dev/null 2>&1
 
             sed -i "/# RESELLER/a ### ${author} ${hhari3} ${MYIP3} ON 999" /root/alawi/registrasi.txt
 
@@ -231,7 +231,7 @@ function isikey(){
             hhari=$(date -d "$KEY2 days" +"%Y-%m-%d")
             mkdir -p /root/alawi
             cd /root/alawi
-            wget ${REPOKU}/izin/script/registrasi.txt >/dev/null 2>&1
+            wget ${REPOKU}/registrasi.txt >/dev/null 2>&1
             if [ "$ADMIN" = "ON" ]; then
                 sed -i "/# RESELLER/a ### ${author} ${hhari} ${MYIP} ${ADMIN} ${TOTALIP}" /root/alawi/registrasi.txt
             else
@@ -621,7 +621,7 @@ function TERAKHIR(){
     RAM=$(free -m | awk 'NR==2 {print $2}'); RAM=$(convert $RAM)
     MODEL2=$(grep -w PRETTY_NAME /etc/os-release | awk -F'=' '{print $2}' | sed 's/"//g' | sed 's/ *(.*)//' | awk '{for(i=1;i<=10;i++) printf $i" "; if(NF>10) printf "..."; print ""}')
     MYIP=$(curl -sS ipv4.icanhazip.com)
-    IZIN=$(curl -sS ${REPOKU}/izin/script/registrasi.txt | grep $MYIP | awk '{print $3}' )
+    IZIN=$(curl -sS ${REPOKU}/registrasi.txt | grep $MYIP | awk '{print $3}' )
     d1=$(date -d "$IZIN" +%s)
     d2=$(date -d "$today" +%s)
     EXP=$(( (d1 - d2) / 86400 ))

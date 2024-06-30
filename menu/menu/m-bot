@@ -1,5 +1,5 @@
 #!/bin/bash
-REPOKU="https://raw.githubusercontent.com/vmessh/izin/script"
+REPOKU="https://www.vmessh.cloud"
 REPOSC="https://iam.scvpn.cloud"
 colornow=$(cat /etc/alawivpn/theme/color.conf)
 export N='\e[0m'

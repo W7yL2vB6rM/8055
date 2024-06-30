@@ -1,6 +1,6 @@
 #!/bin/bash
 clear
-REPOKU="https://raw.githubusercontent.com/vmessh/izin/script"
+REPOKU="https://www.vmessh.cloud"
 REPOGIT="https://github.com/petapaan/izin.git"
 REPOPUSH="github.com/petapaan/izin.git"
 REPOSC="https://iam.scvpn.cloud"
