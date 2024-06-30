@@ -61,6 +61,7 @@ cp -r /etc/botexp/id /root/backup/expid &> /dev/null
 cp -r /etc/botexp/token /root/backup/exptoken &> /dev/null
 cp -r /etc/xray/config.json /root/backup/xray &> /dev/null
 cp -r /etc/xray/ssh /root/backup/ssh &> /dev/null
+cp -r /etc/xray/domain /root/backup/domain &> /dev/null
 cp -r /home/vps/public_html /root/backup/public_html &> /dev/null
 cp -r /etc/xray/sshx /root/backup/sshx &> /dev/null
 cp -r /etc/vmess /root/backup/vmess &> /dev/null

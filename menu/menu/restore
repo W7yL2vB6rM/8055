@@ -1,4 +1,5 @@
 #!/bin/bash
+export domain1=$(cat /etc/xray/domain)
 REPOKU="https://www.vmessh.cloud"
 REPOSC="https://iam.scvpn.cloud"
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
@@ -55,6 +56,8 @@ cp -r group /etc/ &> /dev/null
 cp -r shadow /etc/ &> /dev/null
 cp -r xray /etc/xray/config.json &> /dev/null
 cp -r ssh /etc/xray/ssh &> /dev/null
+cp -r domain /etc/xray/domain &> /dev/null
+cp -r domain /etc/v2ray/domain &> /dev/null
 cp -r idchat /usr/bin/idchat &> /dev/null
 cp -r token /usr/bin/token &> /dev/null
 cp -r id /etc/per/id &> /dev/null
@@ -70,11 +73,38 @@ cp -r vmess /etc/ &> /dev/null
 cp -r vless /etc/ &> /dev/null
 cp -r trojan /etc/ &> /dev/null
 cp -r issue /etc/issue.net &> /dev/null
+domain2=$(cat /etc/xray/domain)
+echo "IP=$domain2" > /var/lib/ipvps.conf
 echo -e " [ ${COLOR1}INFO${NC} ] VPS Data Restore Complete !"
 sleep 1
 echo -e " [ ${COLOR1}INFO${NC} ] Restart All Service . . ."
 systemctl restart xray
 systemctl restart nginx
+IP=$(curl -sS ipv4.icanhazip.com)
+TD=$(date +"%d-%m-%Y | %H:%M %Z")
+domain=$(cat /etc/xray/domain)
+KEY=$(cat /usr/bin/token)
+CHATID=$(cat /usr/bin/idchat)
+TIMES="10"
+URL="https://api.telegram.org/bot$KEY/sendMessage"
+ISP=$(cat /etc/xray/isp)
+CITY=$(cat /etc/xray/city)
+TEKS="
+━━━━━━━━━━━━━━━━━━━━━━━
+  <b>☘ RESTORE VPS COMPLETED ☘<b>
+━━━━━━━━━━━━━━━━━━━━━━━
+<b>● IP :</b> <code>$IP</code>
+<b>● Old Host :</b> <code>$domain1</code>
+<b>● New Host :</b> <code>$domain</code>
+<b>● ISP :</b> <code>$ISP</code>
+<b>● CITY :</b> <code>$CITY</code>
+━━━━━━━━━━━━━━━━━━━━━━━
+       <code>$TD</code>
+━━━━━━━━━━━━━━━━━━━━━━━
+» @alawivpn
+"
+curl -s --max-time $TIMES -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEKS&parse_mode=html" $URL >/dev/null
+
 cd
 rm -rf *
 echo -e " [ ${COLOR1}INFO${NC} ] Done!"
