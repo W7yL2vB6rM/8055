@@ -18,6 +18,7 @@ red() { echo -e "\\033[31;1m${*}\\033[0m"; }
 # REPOSITORY
 REPOKU="https://www.vmessh.cloud"
 REPOSC="https://iam.scvpn.cloud"
+REPOKEY="https://key.vmessh.cloud"
 # TELEGRAMKU
 CHATID="6331389328"
 TOKENBOT="7056544769:AAFLjBtNMc5Rj9IPOfJ7O_4PJ4H0IlvMg1o"
@@ -129,11 +130,11 @@ function isikey(){
             echo -e " KODE SALAH SILAHKAN MASUKKAN ULANG KODENYA"
             key2
         fi
-        LIST=$(curl -sS ${REPOKU}/license/script/key | grep $kode | awk '{print $2}')
-        Key=$(curl -sS ${REPOKU}/license/script/key | grep $kode | awk '{print $3}')
-        KEY2=$(curl -sS ${REPOKU}/license/script/key | grep $kode | awk '{print $4}')
-        ADMIN=$(curl -sS ${REPOKU}/license/script/key | grep $kode | awk '{print $5}')
-        TOTALIP=$(curl -sS ${REPOKU}/license/script/key | grep $kode | awk '{print $6}')
+        LIST=$(curl -sS ${REPOKEY}/key | grep $kode | awk '{print $2}')
+        Key=$(curl -sS ${REPOKEY}/key | grep $kode | awk '{print $3}')
+        KEY2=$(curl -sS ${REPOKEY}/key | grep $kode | awk '{print $4}')
+        ADMIN=$(curl -sS ${REPOKEY}/key | grep $kode | awk '{print $5}')
+        TOTALIP=$(curl -sS ${REPOKEY}/key | grep $kode | awk '{print $6}')
         cd
         if [[ $kode == "BISMILLAH" ]]; then
             MYIP=$(curl -sS ipv4.icanhazip.com)
@@ -250,7 +251,7 @@ function isikey(){
             git push -f https://${APIGIT}@github.com/${USERGIT}/izin >/dev/null 2>&1
             sleep 0.5
             rm registrasi.txt
-            wget ${REPOKU}/license/script/key >/dev/null 2>&1
+            wget ${REPOKEY}/key >/dev/null 2>&1
             if [ "$ADMIN" = "ON" ]; then
                 sed -i "/^### $LIST $Key $KEY2 $ADMIN $TOTALIP/d" /root/alawi/key
             else
