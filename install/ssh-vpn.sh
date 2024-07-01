@@ -260,7 +260,7 @@ sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 wget -q ${REPOSC}/install/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
 
 # // install lolcat
-wget -q ${REPOSC}//install/lolcat.sh &&  chmod +x lolcat.sh && ./lolcat.sh
+#wget -q ${REPOSC}//install/lolcat.sh &&  chmod +x lolcat.sh && ./lolcat.sh
 
 # memory swap 1gb
 cd

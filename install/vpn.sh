@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPOSC="https://iam.scvpn.cloudc"
+REPOSC="https://iam.scvpn.cloud"
 # initialisasi var
 export DEBIAN_FRONTEND=noninteractive
 OS=`uname -m`;
