@@ -28,7 +28,7 @@ checking_sc() {
     fi
 }
 checking_sc
-mkdir -p /etc/xray/botexp/
+mkdir -p /etc/botexp/
 clear
 echo -e "$COLOR1
  ╔═════════════════════════════════════════════════╗
