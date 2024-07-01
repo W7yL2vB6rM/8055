@@ -1,5 +1,5 @@
 #!/bin/bash
-IP=$(curl -sS ipv4.icanhazip.com)
+IP=$(curl -sS ipinfo.io/ip)
 ISP=$(cat /etc/xray/isp)
 CITY=$(cat /etc/xray/city)
 domain=$(cat /etc/xray/domain)

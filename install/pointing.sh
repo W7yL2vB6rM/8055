@@ -14,7 +14,7 @@ DOMAIN1="alawivpn.cloud"
 sub=$(cat /root/subdomainx)
 SUB_DOMAIN1="${sub}.${DOMAIN1}"
 SUB_DOMAIN01="*.${SUB_DOMAIN1}"
-IP=$(curl -sS ipv4.icanhazip.com)
+IP=$(curl -sS ipinfo.io/ip)
 
 # SUB 1
 set -euo pipefail

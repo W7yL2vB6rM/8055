@@ -11,7 +11,7 @@ U=$COLOR1
 O=$COLBG1
 W='\e[1;37m'
 N='\e[0m'
-ipsaya=$(wget -qO- ipv4.icanhazip.com)
+ipsaya=$(wget -qO- ipinfo.io/ip)
 data_server=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 date_list=$(date +"%Y-%m-%d" -d "$data_server")
 data_ip="${REPOKU}/registrasi.txt"
@@ -33,7 +33,7 @@ checking_sc() {
 checking_sc
 
 rm -rf /root/alawi >/dev/null
-MYIP=$(curl -sS ipv4.icanhazip.com)
+MYIP=$(curl -sS ipinfo.io/ip)
 listuser=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $2}')
 superadmin=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $7}')
 uu=$(curl -sS https://pastebin.com/raw/BZ9Fcnqf)
@@ -283,7 +283,7 @@ CHATID=$(cat /etc/per/id)
 KEY=$(cat /etc/per/token)
 URL="https://api.telegram.org/bot$KEY/sendMessage"
 superadmin=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $7}')
-MYIP=$(curl -sS ipv4.icanhazip.com)
+MYIP=$(curl -sS ipinfo.io/ip)
 U2=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $2}')
 U3=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $3}')
 U4=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $4}')
@@ -453,7 +453,7 @@ m-ip
 }
 function tambahip(){
 clear
-MYIP=$(curl -sS ipv4.icanhazip.com)
+MYIP=$(curl -sS ipinfo.io/ip)
 listuser=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $2}')
 superadmin=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $7}')
 uu=$(curl -sS https://pastebin.com/raw/BZ9Fcnqf)
@@ -570,7 +570,7 @@ m-ip
 }
 function gantinama(){
 clear
-MYIP=$(curl -sS ipv4.icanhazip.com)
+MYIP=$(curl -sS ipinfo.io/ip)
 listuser=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $2}')
 superadmin=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $7}')
 uu=$(curl -sS https://pastebin.com/raw/BZ9Fcnqf)
@@ -701,7 +701,7 @@ m-ip
 }
 function renewipvps(){
 clear
-MYIP=$(curl -sS ipv4.icanhazip.com)
+MYIP=$(curl -sS ipinfo.io/ip)
 listuser=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $2}')
 superadmin=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $7}')
 uu=$(curl -sS https://pastebin.com/raw/BZ9Fcnqf)
@@ -762,7 +762,7 @@ name1=$(curl -sS ${data_ip} | grep $iprenew | awk '{print $2}') #name
 exp=$(curl -sS ${data_ip} | grep $iprenew | awk '{print $3}') #exp
 ivps1=$(curl -sS ${data_ip} | grep $iprenew | awk '{print $4}') #ip
 trial=$(curl -sS ${data_ip} | grep $iprenew | awk '{print $5}') #ip
-MYIP=$(curl -sS ipv4.icanhazip.com)
+MYIP=$(curl -sS ipinfo.io/ip)
 UU2=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $2}')
 U2=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $2}')
 U3=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $3}')
@@ -832,7 +832,7 @@ m-ip
 }
 function gantinamabaru(){
 clear
-MYIP=$(curl -sS ipv4.icanhazip.com)
+MYIP=$(curl -sS ipinfo.io/ip)
 listuser=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $2}')
 superadmin=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $7}')
 uu=$(curl -sS https://pastebin.com/raw/BZ9Fcnqf)
@@ -891,7 +891,7 @@ name1=$(curl -sS ${data_ip} | grep $iprenew | awk '{print $2}') #name
 exp=$(curl -sS ${data_ip} | grep $iprenew | awk '{print $3}') #exp
 ivps1=$(curl -sS ${data_ip} | grep $iprenew | awk '{print $4}') #ip
 trial=$(curl -sS ${data_ip} | grep $iprenew | awk '{print $5}') #ip
-MYIP=$(curl -sS ipv4.icanhazip.com)
+MYIP=$(curl -sS ipinfo.io/ip)
 UU2=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $2}')
 U2=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $2}')
 U3=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $3}')
@@ -951,7 +951,7 @@ m-ip
 }
 function gantiipbaru(){
 clear
-MYIP=$(curl -sS ipv4.icanhazip.com)
+MYIP=$(curl -sS ipinfo.io/ip)
 listuser=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $2}')
 superadmin=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $7}')
 uu=$(curl -sS https://pastebin.com/raw/BZ9Fcnqf)
@@ -1012,7 +1012,7 @@ name1=$(curl -sS ${data_ip} | grep $iprenew | awk '{print $2}') #name
 exp=$(curl -sS ${data_ip} | grep $iprenew | awk '{print $3}') #exp
 ivps1=$(curl -sS ${data_ip} | grep $iprenew | awk '{print $4}') #ip
 trial=$(curl -sS ${data_ip} | grep $iprenew | awk '{print $5}') #ip
-MYIP=$(curl -sS ipv4.icanhazip.com)
+MYIP=$(curl -sS ipinfo.io/ip)
 UU2=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $2}')
 U2=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $2}')
 U3=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $3}')
@@ -1074,7 +1074,7 @@ m-ip
 }
 function delipbaru(){
 clear
-MYIP=$(curl -sS ipv4.icanhazip.com)
+MYIP=$(curl -sS ipinfo.io/ip)
 listuser=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $2}')
 superadmin=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $7}')
 uu=$(curl -sS https://pastebin.com/raw/BZ9Fcnqf)
@@ -1117,7 +1117,7 @@ name1=$(curl -sS ${data_ip} | grep $iprenew | awk '{print $2}') #name
 exp=$(curl -sS ${data_ip} | grep $iprenew | awk '{print $3}') #exp
 ivps1=$(curl -sS ${data_ip} | grep $iprenew | awk '{print $4}') #ip
 trial=$(curl -sS ${data_ip} | grep $iprenew | awk '{print $5}') #ip
-MYIP=$(curl -sS ipv4.icanhazip.com)
+MYIP=$(curl -sS ipinfo.io/ip)
 UU2=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $2}')
 U2=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $2}')
 U3=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $3}')
@@ -1181,7 +1181,7 @@ m-ip
 }
 function useripvps(){
 clear
-MYIP=$(curl -sS ipv4.icanhazip.com)
+MYIP=$(curl -sS ipinfo.io/ip)
 listuser=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $2}')
 superadmin=$(curl -sS ${data_ip} | grep $MYIP | awk '{print $7}')
 uu=$(curl -sS https://pastebin.com/raw/BZ9Fcnqf)

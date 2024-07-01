@@ -17,7 +17,7 @@ tram=$( free -h | awk 'NR==2 {print $2}' )
 uram=$( free -h | awk 'NR==2 {print $3}' )
 ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
 CITY=$(curl -s ipinfo.io/city )
-ipsaya=$(wget -qO- ipv4.icanhazip.com)
+ipsaya=$(wget -qO- ipinfo.io/ip)
 data_server=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 date_list=$(date +"%Y-%m-%d" -d "$data_server")
 data_ip="${REPOKU}/registrasi.txt"
@@ -35,7 +35,7 @@ checking_sc() {
     fi
 }
 checking_sc
-MYIP=$(curl -sS ipv4.icanhazip.com)
+MYIP=$(curl -sS ipinfo.io/ip)
 Exp=$(curl -sS ${REPOKU}/registrasi.txt | grep $MYIP | awk '{print $3}')
 clear
 source /etc/os-release

@@ -31,7 +31,7 @@ checking_sc() {
     fi
 }
 checking_sc
-IP=$(curl -sS ipv4.icanhazip.com);
+IP=$(curl -sS ipinfo.io/ip);
 date=$(date +"%d-%m-%Y")
 time=$(date +"%H:%M:%S %Z")
 domain=$(cat /etc/xray/domain)

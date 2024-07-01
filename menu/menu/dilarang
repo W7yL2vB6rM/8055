@@ -10,7 +10,7 @@ N='\e[0m'
 U=$COLOR1
 O=$COLBG1
 lebar=44
-myip=$(curl -sS ipv4.icanhazip.com)
+myip=$(curl -sS ipinfo.io/ip)
 penyamaan() {
     lebar_judul=${#judul}
     peluasan=$(( (lebar - lebar_judul) /2 -1 ))

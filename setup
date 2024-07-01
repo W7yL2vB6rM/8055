@@ -89,7 +89,7 @@ function isikey(){
         read -p "   Please select numbers 1 atau 2 : " key
     done
     if [[ $key == "1" ]]; then
-        MYIP=$(curl -sS ipv4.icanhazip.com)
+        MYIP=$(curl -sS ipinfo.io/ip)
         rm -rf /etc/github
         mkdir -p /etc/github
         isi_github_info
@@ -137,7 +137,7 @@ function isikey(){
         TOTALIP=$(curl -sS ${REPOKEY}/key | grep $kode | awk '{print $6}')
         cd
         if [[ $kode == "BISMILLAH" ]]; then
-            MYIP=$(curl -sS ipv4.icanhazip.com)
+            MYIP=$(curl -sS ipinfo.io/ip)
             rm -rf /etc/github
             mkdir -p /etc/github
             isi_github_info
@@ -165,7 +165,7 @@ function isikey(){
             sleep 0.5
             rm registrasi.txt
         elif [[ $kode == "SUBHANALLAH" ]]; then
-            MYIP2=$(curl -sS ipv4.icanhazip.com)
+            MYIP2=$(curl -sS ipinfo.io/ip)
             rm -rf /etc/github
             mkdir -p /etc/github
             isi_github_info
@@ -193,7 +193,7 @@ function isikey(){
             sleep 0.5
             rm registrasi.txt
         elif [[ $kode == "ALHAMDULILLAH" ]]; then
-            MYIP3=$(curl -sS ipv4.icanhazip.com)
+            MYIP3=$(curl -sS ipinfo.io/ip)
             rm -rf /etc/github
             mkdir -p /etc/github
             isi_github_info
@@ -221,7 +221,7 @@ function isikey(){
             sleep 0.5
             rm registrasi.txt
         elif [[ $kode == $Key ]]; then
-            MYIP=$(curl -sS ipv4.icanhazip.com)
+            MYIP=$(curl -sS ipinfo.io/ip)
             rm -rf /etc/github
             mkdir -p /etc/github
             isi_github_info
@@ -484,7 +484,7 @@ function ALAWIVPN(){
 }
 
 function CEKIP () {
-    MYIP=$(curl -sS ipv4.icanhazip.com)
+    MYIP=$(curl -sS ipinfo.io/ip)
     IPVPS=$(curl -sS $REPOKU/registrasi.txt | grep $MYIP | awk '{print $4}')
     if [[ $MYIP == $IPVPS ]]; then
         domain
@@ -621,7 +621,7 @@ function TERAKHIR(){
     TIME=$(date +'%d-%m-%Y | %H:%M %Z')
     RAM=$(free -m | awk 'NR==2 {print $2}'); RAM=$(convert $RAM)
     MODEL2=$(grep -w PRETTY_NAME /etc/os-release | awk -F'=' '{print $2}' | sed 's/"//g' | sed 's/ *(.*)//' | awk '{for(i=1;i<=10;i++) printf $i" "; if(NF>10) printf "..."; print ""}')
-    MYIP=$(curl -sS ipv4.icanhazip.com)
+    MYIP=$(curl -sS ipinfo.io/ip)
     IZIN=$(curl -sS ${REPOKU}/registrasi.txt | grep $MYIP | awk '{print $3}' )
     d1=$(date -d "$IZIN" +%s)
     d2=$(date -d "$today" +%s)
@@ -678,7 +678,7 @@ END
         gg="AM"
     fi
     cd
-    curl -sS ipv4.icanhazip.com > /etc/myipvps
+    curl -sS ipinfo.io/ip > /etc/myipvps
     curl -s ipinfo.io/city?token=75082b4831f909 >> /etc/xray/city
     curl -s ipinfo.io/org?token=75082b4831f909  | cut -d " " -f 2-10 >> /etc/xray/isp
     rm /root/setup.sh >/dev/null 2>&1

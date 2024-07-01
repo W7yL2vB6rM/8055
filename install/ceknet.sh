@@ -11,7 +11,7 @@ Font_White="\033[37m"
 Font_Suffix="\033[0m"
 
 uptime="$(uptime -p | cut -d " " -f 2-10)"
-ISP=$(curl -s ipv4.icanhazip.com)
+ISP=$(curl -s ipinfo.io/ip)
 CITY=$(curl -s ipinfo.io/city)
 WKT=$(curl -s ipinfo.io/timezone)
 IPVPS=$(curl -s ipinfo.io/ip)

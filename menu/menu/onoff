@@ -2,7 +2,7 @@
 clear
 REPOKU="https://www.vmessh.cloud"
 data_server=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
-ipsaya=$(wget -qO- ipv4.icanhazip.com)
+ipsaya=$(wget -qO- ipinfo.io/ip)
 data_ip="${REPOKU}/registrasi.txt"
 date_list=$(date +"%Y-%m-%d" -d "$data_server")
 useexp=$(curl -sS $data_ip | grep $ipsaya | awk '{print $3}')
