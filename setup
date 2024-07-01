@@ -485,7 +485,7 @@ function ALAWIVPN(){
 
 function CEKIP () {
     MYIP=$(curl -sS ipv4.icanhazip.com)
-    IPVPS=$(curl -sS $REPOKU/izin/script/registrasi.txt | grep $MYIP | awk '{print $4}')
+    IPVPS=$(curl -sS $REPOKU/registrasi.txt | grep $MYIP | awk '{print $4}')
     if [[ $MYIP == $IPVPS ]]; then
         domain
         ALAWIVPN
