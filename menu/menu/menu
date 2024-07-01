@@ -61,9 +61,9 @@ checking_sc() {
 }
 checking_sc
 function key(){
-echo -e " ${U}┌──────────────────────────────────────────┐${N}"
-echo -e " ${U}│           MASUKKAN LICENSE KEY           │${N}"
-echo -e " ${U}└──────────────────────────────────────────┘${N}"
+echo -e " ${U}╔══════════════════════════════════════════╗${N}"
+echo -e " ${U}║           MASUKKAN LICENSE KEY           ║${N}"
+echo -e " ${U}╚══════════════════════════════════════════╝${N}"
 echo
 read -rp " Masukan Key Kamu Disini ctrl + c Exit : " -e kode
 cd
@@ -165,9 +165,9 @@ echo -e " KODE SALAH SILAHKAN MASUKKAN ULANG KODENYA"
 sleep 1
 key
 fi
-echo -e " ${U}┌──────────────────────────────────────────┐${N}"
-echo -e " ${U}│              INFO LICENSE KEY            │${N}"
-echo -e " ${U}└──────────────────────────────────────────┘${N}"
+echo -e " ${U}╔══════════════════════════════════════════╗${N}"
+echo -e " ${U}║              INFO LICENSE KEY            ║${N}"
+echo -e " ${U}╚══════════════════════════════════════════╝${N}"
 echo -e " SUCCES MASUKKAN KEY SILAHKAN DITUNGGU"
 echo -e " 2 MENIT AGAR SERVER KEREFRESH"
 read -n 1 -s -r -p "Press any key to Exit"
@@ -451,11 +451,11 @@ clear
 clear && clear && clear
 clear;clear;clear
 if [ "$Isadmin" = "ON" ]; then
-echo -e " ${U}┌──────────────── ● PANEL ADMIN VIP ● ────────────┐${N}"
-echo -e " ${U}│  ${W}[${U}13${W}]${N} ${U}● ${W}RESELLER IP ${W}[${U}MENU${W}] ${U} ${N}"
+echo -e " ${U}╔════════════════ ● PANEL ADMIN VIP ● ════════════╗${N}"
+echo -e " ${U}║  ${W}[${U}13${W}]${N} ${U}● ${W}RESELLER IP ${W}[${U}MENU${W}] ${U} ${N}"
 ressee="m-ip2"
 bottt="m-bot"
-echo -e " ${U}└─────────────────────────────────────────────────┘${N}"
+echo -e " ${U}╚═════════════════════════════════════════════════╝${N}"
 else
 ressee="menu"
 bottt="menu"
@@ -610,9 +610,9 @@ function loading() {
 
 function berhasil(){
 #echo
-#echo -e " ${U}┌──────────────────────────────────────────┐${N}"
-#echo -e " ${U}│${W}        UPDATE SCRIPT VPN BERHASIL        ${U}│${N}"
-#echo -e " ${U}└──────────────────────────────────────────┘${N}"
+#echo -e " ${U}╔══════════════════════════════════════════╗${N}"
+#echo -e " ${U}║${W}        UPDATE SCRIPT VPN BERHASIL        ${U}║${N}"
+#echo -e " ${U}╚══════════════════════════════════════════╝${N}"
 sleep 1
 echo
 echo -e "  Kembali ke menu dalam 3 detik"
@@ -633,9 +633,9 @@ function load() {
     cd && rm -rf ektra*
 }
 echo
-echo -e " ${U}┌──────────────────────────────────────────┐${N}"
-echo -e " ${U}│${W}             UPDATE SCRIPT VPN            ${U}│${N}"
-echo -e " ${U}└──────────────────────────────────────────┘${N}"
+echo -e " ${U}╔══════════════════════════════════════════╗${N}"
+echo -e " ${U}║${W}             UPDATE SCRIPT VPN            ${U}║${N}"
+echo -e " ${U}╚══════════════════════════════════════════╝${N}"
 loading 'load'
 berhasil
 }

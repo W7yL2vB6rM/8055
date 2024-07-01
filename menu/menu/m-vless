@@ -75,22 +75,22 @@ fi
 function add-vless(){
 clear
 until [[ $user =~ ^[a-zA-Z0-9_.-]+$ && ${CLIENT_EXISTS} == '0' ]]; do
-echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-echo -e "${U}│${N}${O}            ${W}● Add Vless Account ●                ${N}${U}│ ${N}"
-echo -e "${U}└─────────────────────────────────────────────────┘${N}"
+echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+echo -e "${U}║${N}${O}            ${W}● Add Vless Account ●                ${N}${U}║ ${N}"
+echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
 echo -e ""
 read -rp "User: " -e user
 CLIENT_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
 if [[ ${CLIENT_EXISTS} == '1' ]]; then
 clear
-echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-echo -e "${U}│${N}${O}            ${W}● Add Vless Account ●                ${N}${U}│ ${N}"
-echo -e "${U}└─────────────────────────────────────────────────┘${N}"
-echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-echo -e "${U}│                                                 │"
-echo -e "${U}│${W} Nama Duplikat Silahkan Buat Nama Lain.          ${U}│"
-echo -e "${U}│                                                 │"
-echo -e "${U}└─────────────────────────────────────────────────┘${N}"
+echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+echo -e "${U}║${N}${O}            ${W}● Add Vless Account ●                ${N}${U}║ ${N}"
+echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
+echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+echo -e "${U}║                                                 ║"
+echo -e "${U}║${W} Nama Duplikat Silahkan Buat Nama Lain.          ${U}║"
+echo -e "${U}║                                                 ║"
+echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
 read -n 1 -s -r -p "Press any key to back"
 add-vless
 fi
@@ -345,9 +345,9 @@ menu
 function trial-vless(){
 clear
 cd
-echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
+echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
 echo -e "${U} ${N}${O}            ${W}● Trial Vless Account ●             "
-echo -e "${U}└─────────────────────────────────────────────────┘${N}"
+echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
 until [[ $timer =~ ^[0-9]+$ ]]; do
 read -p "Expired (Minutes): " timer
 done
@@ -854,10 +854,10 @@ function cek-vless(){
         systemctl restart xray
     fi
     xraylimit
-    echo -e " ${U}┌─────────────────────────────────────────────────┐${N}"
-    echo -e " ${U}│${N}${O}             ${W}● VLESS USER ONLINE ●               ${N}${U}│ ${N}"
-    echo -e " ${U}└─────────────────────────────────────────────────┘${N}"
-    echo -e " ${U}┌─────────────────────────────────────────────────┐${N}"
+    echo -e " ${U}╔═════════════════════════════════════════════════╗${N}"
+    echo -e " ${U}║${N}${O}             ${W}● VLESS USER ONLINE ●               ${N}${U}║ ${N}"
+    echo -e " ${U}╚═════════════════════════════════════════════════╝${N}"
+    echo -e " ${U}╔═════════════════════════════════════════════════╗${N}"
     vl=($(cat /etc/xray/config.json | grep "^#vlg" | awk '{print $2}' | sort -u))
     echo -n >/tmp/vl
     for db1 in ${vl[@]}; do
@@ -883,8 +883,8 @@ function cek-vless(){
         done <<<"${logvl}"
     done
     if [[ ${splvl} != "" ]]; then
-        printf " ${U}%-5s${W}%-15s%-12s%-12s%-8s${U}%s\n" "│" "USERNAME" "LOGIN" "USAGE" "LIMIT" "│"
-        echo -e " ${U}├─────────────────────────────────────────────────┤${N}"
+        printf " ${U}%-5s${W}%-15s%-12s%-12s%-8s${U}%s\n" "║" "USERNAME" "LOGIN" "USAGE" "LIMIT" "║"
+        echo -e " ${U}╠═════════════════════════════════════════════════╣${N}"
         for vluser in ${vl[@]}; do
             vlhas=$(cat /tmp/vl | grep -w "${vluser}" | wc -l)
             tess=0
@@ -893,22 +893,22 @@ function cek-vless(){
                 gb=$(convert ${byt})
                 lim=$(cat /etc/vless/${vluser})
                 lim2=$(convert ${lim})
-                printf " ${U}%-5s\e[0;33m%-17s%-10s%-12s%-8s${U}%s\n" "│" "$vluser" "$vlhas" "$gb" "$lim2" "│"
+                printf " ${U}%-5s\e[0;33m%-17s%-10s%-12s%-8s${U}%s\n" "║" "$vluser" "$vlhas" "$gb" "$lim2" "║"
             fi
         done
     else
-        echo -e " ${U}│                                                 │"
-        echo -e " ${U}│${W}             TIDAK ADA USER ONLINE!              ${U}│${N}"
-        echo -e " ${U}│                                                 │"
-        echo -e " ${U}└─────────────────────────────────────────────────┘${N}"
+        echo -e " ${U}║                                                 ║"
+        echo -e " ${U}║${W}             TIDAK ADA USER ONLINE!              ${U}║${N}"
+        echo -e " ${U}║                                                 ║"
+        echo -e " ${U}╚═════════════════════════════════════════════════╝${N}"
         read -n 1 -s -r -p "  Press any key to back on menu"
         menu && exit
     fi
 
-    echo -e " ${U}└─────────────────────────────────────────────────┘${N}"
-    echo -e " ${U}┌─────────────────────────────────────────────────┐${N}"
-    echo -e " ${U}│${W}          CODE BY : ALAWI CONFIG-SANTRI          ${U}│${N}"
-    echo -e " ${U}└─────────────────────────────────────────────────┘${N}"
+    echo -e " ${U}╚═════════════════════════════════════════════════╝${N}"
+    echo -e " ${U}╔═════════════════════════════════════════════════╗${N}"
+    echo -e " ${U}║${W}          CODE BY : ALAWI CONFIG-SANTRI          ${U}║${N}"
+    echo -e " ${U}╚═════════════════════════════════════════════════╝${N}"
     echo
     read -n 1 -s -r -p "   Press any key to back on menu"
     m-vless
@@ -972,23 +972,23 @@ m-vless
 }
 function login-vless(){
 clear
-echo -e "${U}┌───────────────────────────────────────────────┐${N}"
-echo -e "${U}│${N}${O}           ${W}● SETTING MULTI LOGIN ●             ${N}${U}│ ${N}"
-echo -e "${U}└───────────────────────────────────────────────┘${N}"
-echo -e "${U}┌───────────────────────────────────────────────┐${N}"
-echo -e "${U}│ ${N} SILAHKAN TULIS JUMLAH NOTIFIKASI UNTUK LOCK    ${N}"
-echo -e "${U}│ ${N} AKUN USER YANG MULTI LOGIN     ${N}"
-echo -e "${U}└───────────────────────────────────────────────┘${N}"
+echo -e "${U}╔═══════════════════════════════════════════════╗${N}"
+echo -e "${U}║${N}${O}           ${W}● SETTING MULTI LOGIN ●             ${N}${U}║ ${N}"
+echo -e "${U}╚═══════════════════════════════════════════════╝${N}"
+echo -e "${U}╔═══════════════════════════════════════════════╗${N}"
+echo -e "${U}║ ${N} SILAHKAN TULIS JUMLAH NOTIFIKASI UNTUK LOCK    ${N}"
+echo -e "${U}║ ${N} AKUN USER YANG MULTI LOGIN     ${N}"
+echo -e "${U}╚═══════════════════════════════════════════════╝${N}"
 read -rp "   Jika Mau 3x Notif baru kelock tulis 3, dst: " -e notif
 cd /etc/vless
 echo "$notif" > notif
 clear
-echo -e "${U}┌───────────────────────────────────────────────┐${N}"
-echo -e "${U}│${N}${O}           ${W}● SETTING MULTI LOGIN ●             ${N}${U}│ ${N}"
-echo -e "${U}└───────────────────────────────────────────────┘${N}"
-echo -e "${U}┌───────────────────────────────────────────────┐${N}"
-echo -e "${U}│ ${N} SUCCES GANTI NOTIF LOCK JADI $notif ${N} "
-echo -e "${U}└───────────────────────────────────────────────┘${N}"
+echo -e "${U}╔═══════════════════════════════════════════════╗${N}"
+echo -e "${U}║${N}${O}           ${W}● SETTING MULTI LOGIN ●             ${N}${U}║ ${N}"
+echo -e "${U}╚═══════════════════════════════════════════════╝${N}"
+echo -e "${U}╔═══════════════════════════════════════════════╗${N}"
+echo -e "${U}║ ${N} SUCCES GANTI NOTIF LOCK JADI $notif ${N} "
+echo -e "${U}╚═══════════════════════════════════════════════╝${N}"
 m-vless
 }
 function lock-vless(){

@@ -50,9 +50,9 @@ function animasiku(){
     res16() { systemctl restart kyt; }
     pro() { echo -e "\\033[37;1m${*}\\033[0m"; }
     echo
-    echo -e " ${U}┌──────────────────────────────────────────┐${N}"
-    echo -e " ${U}│${W}           RESTART ALL SERVICE            ${U}│${N}"
-    echo -e " ${U}└──────────────────────────────────────────┘${N}"
+    echo -e " ${U}╔══════════════════════════════════════════╗${N}"
+    echo -e " ${U}║${W}           RESTART ALL SERVICE            ${U}║${N}"
+    echo -e " ${U}╚══════════════════════════════════════════╝${N}"
     pro "  Restart Service NGINX"
     fun_bar 'res1'
     pro "  Restart Service XRAY"

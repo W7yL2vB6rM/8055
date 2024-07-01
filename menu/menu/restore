@@ -31,13 +31,13 @@ checking_sc
 mkdir -p /etc/xray/botexp/
 clear
 echo -e "$COLOR1
- ┌─────────────────────────────────────────────────┐
- │${WH}     This Feature Can Only Be Used According     ${COLOR1}│
- │${WH}        To VPS Data With This Autoscript         ${COLOR1}│
- │${WH}                                                 ${COLOR1}│
- │${WH}       Please Insert VPS Data Backup Link        ${COLOR1}│
- │${WH}              To Restore The Data                ${COLOR1}│
- └─────────────────────────────────────────────────┘
+ ╔═════════════════════════════════════════════════╗
+ ║${WH}     This Feature Can Only Be Used According     ${COLOR1}║
+ ║${WH}        To VPS Data With This Autoscript         ${COLOR1}║
+ ║${WH}                                                 ${COLOR1}║
+ ║${WH}       Please Insert VPS Data Backup Link        ${COLOR1}║
+ ║${WH}              To Restore The Data                ${COLOR1}║
+ ╚═════════════════════════════════════════════════╝
 ${NC}"
 read -rp " Link File: " -e url
 cd

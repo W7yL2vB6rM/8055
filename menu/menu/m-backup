@@ -196,9 +196,9 @@ rm -rf /etc/cron.d/bckp_otm
 rm -rf /etc/cron.d/bckp_otm2
 rm -rf /etc/jam
 echo -e ""
-echo -e "${U}┌──────────────────────────────────────────┐${N}"
+echo -e "${U}╔══════════════════════════════════════════╗${N}"
 echo -e "${U} Silahkan Tulis Jamnya contoh : 2 Jam Tulis 2. dst.${N}"
-echo -e "${U}└──────────────────────────────────────────┘${N}"
+echo -e "${U}╚══════════════════════════════════════════╝${N}"
 echo -e " "
 read -p "   Silahkan tulis jam auto backup nya : " jam2
 echo "$jam2" > /etc/jam2
@@ -222,9 +222,9 @@ rm -rf /etc/cron.d/bckp_otm
 rm -rf /etc/cron.d/bckp_otm2
 rm -rf /etc/jam
 echo -e ""
-echo -e "${U}┌──────────────────────────────────────────┐${N}"
+echo -e "${U}╔══════════════════════════════════════════╗${N}"
 echo -e "${U} Contoh Format Jam : 4 = jam 4 pagi, 20 = jam 8 malam ${N}"
-echo -e "${U}└──────────────────────────────────────────┘${N}"
+echo -e "${U}╚══════════════════════════════════════════╝${N}"
 echo -e " "
 read -p "   Silahkan tulis jam auto backup nya : " jam
 echo "$jam" > /etc/jam
@@ -245,13 +245,13 @@ clear
 function autobckpbot(){
 clear
 echo ""
-echo -e "${U}┌──────────────────────────────────────────┐${N}"
-echo -e "${U}│        ${W}Please select a your Choice       ${U}│${N}"
-echo -e "${U}└──────────────────────────────────────────┘${N}"
-echo -e "${U}┌──────────────────────────────────────────┐${N}"
-echo -e "${U}│           [ 1 ]  ${W}OFF AUTO BACKUP         ${U}│${N}"
-echo -e "${U}│           [ 2 ]  ${W}ON AUTO BACKUP          ${U}│${N}"
-echo -e "${U}└──────────────────────────────────────────┘${N}"
+echo -e "${U}╔══════════════════════════════════════════╗${N}"
+echo -e "${U}║        ${W}Please select a your Choice       ${U}║${N}"
+echo -e "${U}╚══════════════════════════════════════════╝${N}"
+echo -e "${U}╔══════════════════════════════════════════╗${N}"
+echo -e "${U}║           [ 1 ]  ${W}OFF AUTO BACKUP         ${U}║${N}"
+echo -e "${U}║           [ 2 ]  ${W}ON AUTO BACKUP          ${U}║${N}"
+echo -e "${U}╚══════════════════════════════════════════╝${N}"
 read -p "   Please select numbers 1-2 or Any Button(back) : " bot
 echo ""
 if [[ $bot == "1" ]]; then
@@ -265,13 +265,13 @@ menu
 clear
 elif [[ $bot == "2" ]]; then
 clear
-echo -e "${U}┌──────────────────────────────────────────┐${N}"
-echo -e "${U}│        ${W}Please select a your Choice       ${U}│${N}"
-echo -e "${U}└──────────────────────────────────────────┘${N}"
-echo -e "${U}┌──────────────────────────────────────────┐${N}"
-echo -e "${U}│           [ 1 ]  ${W}AUTO BACKUP TIAP JAM    ${U}│${N}"
-echo -e "${U}│           [ 2 ]  ${W}AUTO BACKUP TIAP HARI   ${U}│${N}"
-echo -e "${U}└──────────────────────────────────────────┘${N}"
+echo -e "${U}╔══════════════════════════════════════════╗${N}"
+echo -e "${U}║        ${W}Please select a your Choice       ${U}║${N}"
+echo -e "${U}╚══════════════════════════════════════════╝${N}"
+echo -e "${U}╔══════════════════════════════════════════╗${N}"
+echo -e "${U}║           [ 1 ]  ${W}AUTO BACKUP TIAP JAM    ${U}║${N}"
+echo -e "${U}║           [ 2 ]  ${W}AUTO BACKUP TIAP HARI   ${U}║${N}"
+echo -e "${U}╚══════════════════════════════════════════╝${N}"
 read -p "   Please select numbers 1-2 or Any Button(Random) : " bott
 echo ""
 fi

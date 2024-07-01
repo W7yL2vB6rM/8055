@@ -74,22 +74,22 @@ fi
 function add-tr(){
 clear
 until [[ $user =~ ^[a-zA-Z0-9_.-]+$ && ${user_EXISTS} == '0' ]]; do
-echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-echo -e "${U}│${N}${O}            ${W}● Add Trojan Account ●               ${N}${U}│ ${N}"
-echo -e "${U}└─────────────────────────────────────────────────┘${N}"
+echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+echo -e "${U}║${N}${O}            ${W}● Add Trojan Account ●               ${N}${U}║ ${N}"
+echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
 echo -e ""
 read -rp "User: " -e user
 user_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
 if [[ ${user_EXISTS} == '1' ]]; then
 clear
-echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-echo -e "${U}│${N}${O}            ${W}● Add Trojan Account ●         ${N}${U}│ ${N}"
-echo -e "${U}└─────────────────────────────────────────────────┘${N}"
-echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-echo -e "${U}│                                                 │"
-echo -e "${U}│${W} Nama Duplikat Silahkan Buat Nama Lain.          ${U}│"
-echo -e "${U}│                                                 │"
-echo -e "${U}└─────────────────────────────────────────────────┘${N}"
+echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+echo -e "${U}║${N}${O}            ${W}● Add Trojan Account ●         ${N}${U}║ ${N}"
+echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
+echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+echo -e "${U}║                                                 ║"
+echo -e "${U}║${W} Nama Duplikat Silahkan Buat Nama Lain.          ${U}║"
+echo -e "${U}║                                                 ║"
+echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
 kembali
 add-tr
 fi
@@ -169,9 +169,9 @@ Link GRPC : trojan://${uuid}@${domain}:443?mode=gun&security=tls&type=grpc&servi
 END
 if [ ${Quota} = '9999' ]; then
 TEXT="
-────────────────────
+════════════════════
 Premium Trojan Account
-────────────────────
+════════════════════
 User         : ${user}
 Domain       : <code>${domain}</code>
 Login Limit  : ${iplim} IP
@@ -186,20 +186,20 @@ Security     : auto
 Network      : WS or gRPC
 Path TLS     : <code>/trojan-ws</code>
 Path gRPC    : <code>/trojan-grpc</code>
-────────────────────
+════════════════════
 Link TLS    :
 <code>${trojan2}</code>
-────────────────────
+════════════════════
 Link GRPC    :
 <code>${trojan1}</code>
-────────────────────
+════════════════════
 Format OpenClash :
 http://$domain:89/trojan-$user.txt
-────────────────────
+════════════════════
 Expired Until    :  $exp
-────────────────────
+════════════════════
 $author
-────────────────────
+════════════════════
 "
 else
 TEXT="
@@ -303,9 +303,9 @@ menu
 function trial-trojan(){
 clear
 cd
-echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-echo -e "${U}│${N}${O}            ${W}● Trial Trojan Account ●             ${N}${U}│ ${N}"
-echo -e "${U}└─────────────────────────────────────────────────┘${N}"
+echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+echo -e "${U}║${N}${O}            ${W}● Trial Trojan Account ●             ${N}${U}║ ${N}"
+echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
 echo -e ""
 until [[ $timer =~ ^[0-9]+$ ]]; do
 read -p "Expired (Minutes): " timer
@@ -773,10 +773,10 @@ function cek-tr(){
         systemctl restart xray
     fi
     xraylimit
-    echo -e " ${U}┌─────────────────────────────────────────────────┐${N}"
-    echo -e " ${U}│${N}${O}             ${W}● TROJAN USER ONLINE ●              ${N}${U}│ ${N}"
-    echo -e " ${U}└─────────────────────────────────────────────────┘${N}"
-    echo -e " ${U}┌─────────────────────────────────────────────────┐${N}"
+    echo -e " ${U}╔═════════════════════════════════════════════════╗${N}"
+    echo -e " ${U}║${N}${O}             ${W}● TROJAN USER ONLINE ●              ${N}${U}║ ${N}"
+    echo -e " ${U}╚═════════════════════════════════════════════════╝${N}"
+    echo -e " ${U}╔═════════════════════════════════════════════════╗${N}"
     tr=($(cat /etc/xray/config.json | grep "^#trg" | awk '{print $2}' | sort -u))
     echo -n >/tmp/tr
     for db1 in ${tr[@]}; do
@@ -802,8 +802,8 @@ function cek-tr(){
         done <<<"${logtr}"
     done
     if [[ ${spltr} != "" ]]; then
-        printf " ${U}%-5s${W}%-15s%-12s%-12s%-8s${U}%s\n" "│" "USERNAME" "LOGIN" "USAGE" "LIMIT" "│"
-        echo -e " ${U}├─────────────────────────────────────────────────┤${N}"
+        printf " ${U}%-5s${W}%-15s%-12s%-12s%-8s${U}%s\n" "║" "USERNAME" "LOGIN" "USAGE" "LIMIT" "║"
+        echo -e " ${U}╠═════════════════════════════════════════════════╣${N}"
         for truser in ${tr[@]}; do
             trhas=$(cat /tmp/tr | grep -w "${truser}" | wc -l)
             tess=0
@@ -812,22 +812,22 @@ function cek-tr(){
                 gb=$(convert ${byt})
                 lim=$(cat /etc/trojan/${truser})
                 lim2=$(convert ${lim})
-                printf " ${U}%-5s\e[0;33m%-17s%-10s%-12s%-8s${U}%s\n" "│" "$truser" "$trhas" "$gb" "$lim2" "│"
+                printf " ${U}%-5s\e[0;33m%-17s%-10s%-12s%-8s${U}%s\n" "║" "$truser" "$trhas" "$gb" "$lim2" "║"
             fi
         done
     else
-        echo -e " ${U}│                                                 │"
-        echo -e " ${U}│${W}             TIDAK ADA USER ONLINE!              ${U}│${N}"
-        echo -e " ${U}│                                                 │"
-        echo -e " ${U}└─────────────────────────────────────────────────┘${N}"
+        echo -e " ${U}║                                                 ║"
+        echo -e " ${U}║${W}             TIDAK ADA USER ONLINE!              ${U}║${N}"
+        echo -e " ${U}║                                                 ║"
+        echo -e " ${U}╚═════════════════════════════════════════════════╝${N}"
         read -n 1 -s -r -p "  Press any key to back on menu"
         menu && exit
     fi
 
-    echo -e " ${U}└─────────────────────────────────────────────────┘${N}"
-    echo -e " ${U}┌─────────────────────────────────────────────────┐${N}"
-    echo -e " ${U}│${W}          CODE BY : ALAWI CONFIG-SANTRI          ${U}│${N}"
-    echo -e " ${U}└─────────────────────────────────────────────────┘${N}"
+    echo -e " ${U}╚═════════════════════════════════════════════════╝${N}"
+    echo -e " ${U}╔═════════════════════════════════════════════════╗${N}"
+    echo -e " ${U}║${W}          CODE BY : ALAWI CONFIG-SANTRI          ${U}║${N}"
+    echo -e " ${U}╚═════════════════════════════════════════════════╝${N}"
     echo
     read -n 1 -s -r -p "  Press any key to back on menu"
     m-trojan
@@ -890,23 +890,23 @@ m-trojan
 }
 function login-tr(){
 clear
-echo -e "${U}┌───────────────────────────────────────────────┐${N}"
-echo -e "${U}│${N}${O}           ${W}● SETTING MULTI LOGIN ●             ${N}${U}│ ${N}"
-echo -e "${U}└───────────────────────────────────────────────┘${N}"
-echo -e "${U}┌───────────────────────────────────────────────┐${N}"
-echo -e "${U}│ ${N} SILAHKAN TULIS JUMLAH NOTIFIKASI UNTUK LOCK    ${N}"
-echo -e "${U}│ ${N} AKUN USER YANG MULTI LOGIN     ${N}"
-echo -e "${U}└───────────────────────────────────────────────┘${N}"
+echo -e "${U}╔═══════════════════════════════════════════════╗${N}"
+echo -e "${U}║${N}${O}           ${W}● SETTING MULTI LOGIN ●             ${N}${U}║ ${N}"
+echo -e "${U}╚═══════════════════════════════════════════════╝${N}"
+echo -e "${U}╔═══════════════════════════════════════════════╗${N}"
+echo -e "${U}║ ${N} SILAHKAN TULIS JUMLAH NOTIFIKASI UNTUK LOCK    ${N}"
+echo -e "${U}║ ${N} AKUN USER YANG MULTI LOGIN     ${N}"
+echo -e "${U}╚═══════════════════════════════════════════════╝${N}"
 read -rp "   Jika Mau 3x Notif baru kelock tulis 3, dst: " -e notif
 cd /etc/trojan
 echo "$notif" > notif
 clear
-echo -e "${U}┌───────────────────────────────────────────────┐${N}"
-echo -e "${U}│${N}${O}           ${W}● SETTING MULTI LOGIN ●             ${N}${U}│ ${N}"
-echo -e "${U}└───────────────────────────────────────────────┘${N}"
-echo -e "${U}┌───────────────────────────────────────────────┐${N}"
-echo -e "${U}│ ${N} SUKSES GANTI NOTIF LOCK JADI $notif ${N} "
-echo -e "${U}└───────────────────────────────────────────────┘${N}"
+echo -e "${U}╔═══════════════════════════════════════════════╗${N}"
+echo -e "${U}║${N}${O}           ${W}● SETTING MULTI LOGIN ●             ${N}${U}║ ${N}"
+echo -e "${U}╚═══════════════════════════════════════════════╝${N}"
+echo -e "${U}╔═══════════════════════════════════════════════╗${N}"
+echo -e "${U}║ ${N} SUKSES GANTI NOTIF LOCK JADI $notif ${N} "
+echo -e "${U}╚═══════════════════════════════════════════════╝${N}"
 kembali
 m-trojan
 }

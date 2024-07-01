@@ -80,22 +80,22 @@ fi
 function usernew(){
 	clear
 	echo
-	echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-	echo -e "${U}│${N}${O}               ${W}● SSH PANEL MENU ●                ${N}${U}│ ${N}"
-	echo -e "${U}└─────────────────────────────────────────────────┘${N}"
+	echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+	echo -e "${U}║${N}${O}               ${W}● SSH PANEL MENU ●                ${N}${U}║ ${N}"
+	echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
 	until [[ $Login =~ ^[a-zA-Z0-9_.-]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 		read -p "Username : " Login
 		CLIENT_EXISTS=$(grep -w $Login /etc/xray/ssh | wc -l)
 		if [[ ${CLIENT_EXISTS} == '1' ]]; then
 			clear
-			echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-			echo -e "${U}│${N}${O}               ${W}● SSH PANEL MENU ●                ${N}${U}│ ${N}"
-			echo -e "${U}└─────────────────────────────────────────────────┘${N}"
-			echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-			echo -e "${U}│                                                 │"
-			echo -e "${U}│${W} Nama Duplikat Silahkan Buat Nama Lain.          ${U}│"
-			echo -e "${U}│                                                 │"
-			echo -e "${U}└─────────────────────────────────────────────────┘${N}"
+			echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+			echo -e "${U}║${N}${O}               ${W}● SSH PANEL MENU ●                ${N}${U}║ ${N}"
+			echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
+			echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+			echo -e "${U}║                                                 ║"
+			echo -e "${U}║${W} Nama Duplikat Silahkan Buat Nama Lain.          ${U}║"
+			echo -e "${U}║                                                 ║"
+			echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
 			read -n 1 -s -r -p "Press any key to back"
 			usernew
 		fi
@@ -164,13 +164,13 @@ OpenVPN UDP      : http://$domain:89/udp.ovpn
 END
 	if [[ -e /etc/cloudfront ]]; then
 TEXT="
-────────────────────
+════════════════════
       ☘ SSH Premium Account ☘
-────────────────────
+════════════════════
 <code>Username         :</code>  <code>$Login</code>
 <code>Password         :</code>  <code>$Pass</code>
 <code>Expired On       :</code>  $expi
-────────────────────
+════════════════════
 <code>ISP              :</code>  $ISP
 <code>CITY             :</code>  $CITY
 <code>Host             :</code>  <code>$domain</code>
@@ -186,22 +186,22 @@ TEXT="
 <code>Port OVPN UDP    :</code>  2200
 <code>Proxy Squid      :</code>  3128
 <code>BadVPN UDP       :</code>  7100, 7300, 7300
-────────────────────
+════════════════════
 <code>SSH UDP VIRAL    :</code> <code>$domain:1-65535@$Login:$Pass</code>
-────────────────────
+════════════════════
 <code>HTTP COSTUM WS   :</code> <code>$domain:80@$Login:$Pass</code>
-────────────────────
+════════════════════
 <code>Payload WS/WSS   :</code>
 <code>GET / HTTP/1.1[crlf]Host: [host][crlf]Connection: Upgrade[crlf]User-Agent: [ua][crlf]Upgrade: ws[crlf][crlf]</code>
-────────────────────
+════════════════════
 <code>OpenVPN SSL      :</code>  http://$domain:89/ssl.ovpn
 <code>OpenVPN TCP      :</code>  http://$domain:89/tcp.ovpn
 <code>OpenVPN UDP      :</code>  http://$domain:89/udp.ovpn
-────────────────────
+════════════════════
 <code>Save Link Account:</code> http://$domain:89/ssh-$Login.txt
-────────────────────
+════════════════════
 $author
-────────────────────
+════════════════════
 "
 	else
 TEXT="
@@ -329,9 +329,9 @@ function trial(){
 	clear
 	IP=$(curl -sS ipv4.icanhazip.com)
 	cd
-	echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-	echo -e "${U}│${N}${O}             ${W}● TRIAL SSH ACCOUNT ●               ${N}${U}│ ${N}"
-	echo -e "${U}└─────────────────────────────────────────────────┘${N}"
+	echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+	echo -e "${U}║${N}${O}             ${W}● TRIAL SSH ACCOUNT ●               ${N}${U}║ ${N}"
+	echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
 	echo -e ""
 	until [[ $timer =~ ^[0-9]+$ ]]; do
 		read -p "Expired (Minutes): " timer
@@ -397,13 +397,13 @@ OpenVPN UDP      : http://$domain:89/udp.ovpn
 END
 	if [[ -e /etc/cloudfront ]]; then
 		TEXT="
-────────────────────
+════════════════════
 Trial SSH Premium Account
-────────────────────
+════════════════════
 Username         :  <code>$Login</code>
 Password         :  <code>$Pass</code>
 Expired On       :  $timer Minutes
-────────────────────
+════════════════════
 ISP              :  $ISP
 CITY             :  $CITY
 Host             :  <code>$domain</code>
@@ -419,22 +419,22 @@ Port OVPN TCP    :  1194
 Port OVPN UDP    :  2200
 Proxy Squid      :  3128
 BadVPN UDP       :  7100, 7300, 7300
-────────────────────
+════════════════════
 SSH UDP VIRAL : <code>$domain:1-65535@$Login:$Pass</code>
-────────────────────
+════════════════════
 HTTP COSTUM WS : <code>$domain:80@$Login:$Pass</code>
-────────────────────
+════════════════════
 Payload WS/WSS   :
 <code>GET / HTTP/1.1[crlf]Host: [host][crlf]Connection: Upgrade[crlf]User-Agent: [ua][crlf]Upgrade: ws[crlf][crlf]</code>
-────────────────────
+════════════════════
 OpenVPN SSL      :  http://$domain:89/ssl.ovpn
 OpenVPN TCP      :  http://$domain:89/tcp.ovpn
 OpenVPN UDP      :  http://$domain:89/udp.ovpn
-────────────────────
+════════════════════
 Save Link Account: http://$domain:89/ssh-$Login.txt
-────────────────────
+════════════════════
 $author
-────────────────────
+════════════════════
 "
 	else
 		TEXT="
@@ -542,30 +542,30 @@ function renew(){
 	NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/xray/ssh")
 	if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 		clear
-		echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-		echo -e "${U}│${N}${O}                ${W}● RENEW USERS ●                  ${N}${U}│${N}"
-		echo -e "${U}└─────────────────────────────────────────────────┘${N}"
-		echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-		echo -e "${U}│                                                 │"
-		echo -e "${U}│${W} User Tidak Ada!                              ${U}   │"
-		echo -e "${U}│                                                 │"
-		echo -e "${U}└─────────────────────────────────────────────────┘${N}"
+		echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+		echo -e "${U}║${N}${O}                ${W}● RENEW USERS ●                  ${N}${U}║${N}"
+		echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
+		echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+		echo -e "${U}║                                                 ║"
+		echo -e "${U}║${W} User Tidak Ada!                              ${U}   ║"
+		echo -e "${U}║                                                 ║"
+		echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
 		echo ""
 		read -n 1 -s -r -p "Press any key to back on menu"
 		m-sshovpn
 	fi
-	echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-	echo -e "${U}│${N}${O}                 ${W}● RENEW USERS ●                 ${N}${U}│${N}"
-	echo -e "${U}└─────────────────────────────────────────────────┘${N}"
-	echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-	echo -e "${U}│ ${W}Silahkan pilih user yang mau direnew${U}            │"
-	echo -e "${U}│ ${W}Ketik [0] kembali ke menu${U}                       │"
-	echo -e "${U}└─────────────────────────────────────────────────┘${N}"
-	echo -e " ${U}─────────────────────────────────────────────────${N}"
+	echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+	echo -e "${U}║${N}${O}                 ${W}● RENEW USERS ●                 ${N}${U}║${N}"
+	echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
+	echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+	echo -e "${U}║ ${W}Silahkan pilih user yang mau direnew${U}            ║"
+	echo -e "${U}║ ${W}Ketik [0] kembali ke menu${U}                       ║"
+	echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
+	echo -e " ${U}═════════════════════════════════════════════════${N}"
 	printf "   %-5s%-15s%-15s\n" "NO." "NAMA" "EXPIRED"
-	echo -e " ${U}─────────────────────────────────────────────────${N}"
+	echo -e " ${U}═════════════════════════════════════════════════${N}"
 	grep -E "^### " "/etc/xray/ssh" | cut -d ' ' -f 2-3 | nl -s ') ' |awk -v OFS="\t" '{ printf "   %-5s%-15s%-15s\n", $1, $2, $3 '}
-	echo -e " ${U}─────────────────────────────────────────────────${N}"
+	echo -e " ${U}═════════════════════════════════════════════════${N}"
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
 		if [[ ${CLIENT_NUMBER} == '1' ]]; then
 			read -rp " Select one client [1]: " CLIENT_NUMBER
@@ -632,16 +632,16 @@ function renew(){
 "
 		curl -s --max-time $TIMES -d "chat_id=$CHATID2&disable_web_page_preview=1&text=$TEXT2&parse_mode=html" $URL2 >/dev/null
 		clear
-		echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-		echo -e "${U}│${N}${O}              ${W}● RENEW USERS ●                    │${N}${U}${N}"
-		echo -e "${U}└─────────────────────────────────────────────────┘${N}"
-		echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-		echo -e "${U}│"
-		echo -e "${U}│ ${W}Username   : $User"
-		echo -e "${U}│ ${W}Days Added : $Days Days"
-		echo -e "${U}│ ${W}Expired on : $exp4"
-		echo -e "${U}│"
-		echo -e "${U}└─────────────────────────────────────────────────┘${N}"
+		echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+		echo -e "${U}║${N}${O}              ${W}● RENEW USERS ●                    ║${N}${U}${N}"
+		echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
+		echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+		echo -e "${U}║"
+		echo -e "${U}║ ${W}Username   : $User"
+		echo -e "${U}║ ${W}Days Added : $Days Days"
+		echo -e "${U}║ ${W}Expired on : $exp4"
+		echo -e "${U}║"
+		echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
 	fi
 	bottelegram > /dev/null 2>&1 &
 	read -n 1 -s -r -p "Press any key to back on menu"
@@ -653,30 +653,30 @@ function hapus(){
 	NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/xray/ssh")
 	if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 		clear
-		echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-		echo -e "${U}│${N}${O}                 ${W}● DELETE USERS ●                ${N}${U}│${N}"
-		echo -e "${U}└─────────────────────────────────────────────────┘${N}"
-		echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-		echo -e "${U}│                                                 │"
-		echo -e "${U}│${W} User Tidak Ada!                              ${U}   │"
-		echo -e "${U}│                                                 │"
-		echo -e "${U}└─────────────────────────────────────────────────┘${N}"
+		echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+		echo -e "${U}║${N}${O}                 ${W}● DELETE USERS ●                ${N}${U}║${N}"
+		echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
+		echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+		echo -e "${U}║                                                 ║"
+		echo -e "${U}║${W} User Tidak Ada!                              ${U}   ║"
+		echo -e "${U}║                                                 ║"
+		echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
 		echo ""
 		read -n 1 -s -r -p "Press any key to back on menu"
 		m-sshovpn
 	fi
-	echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-	echo -e "${U}│${N}${O}                 ${W}● DELETE USERS ●                ${N}${U}│${N}"
-	echo -e "${U}└─────────────────────────────────────────────────┘${N}"
-	echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-	echo -e "${U}│ ${W}Silahkan Pilih User Yang Mau Didelete     ${U}      │"
-	echo -e "${U}│ ${W}Ketik [0] kembali ke menu                     ${U}  │"
-	echo -e "${U}└─────────────────────────────────────────────────┘${N}"
-	echo -e " ${U}─────────────────────────────────────────────────${N}"
+	echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+	echo -e "${U}║${N}${O}                 ${W}● DELETE USERS ●                ${N}${U}║${N}"
+	echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
+	echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+	echo -e "${U}║ ${W}Silahkan Pilih User Yang Mau Didelete     ${U}      ║"
+	echo -e "${U}║ ${W}Ketik [0] kembali ke menu                     ${U}  ║"
+	echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
+	echo -e " ${U}═════════════════════════════════════════════════${N}"
 	printf "   %-5s%-15s%-15s\n" "NO." "NAMA" "EXPIRED"
-	echo -e " ${U}─────────────────────────────────────────────────${N}"
+	echo -e " ${U}═════════════════════════════════════════════════${N}"
 	grep -E "^### " "/etc/xray/ssh" | cut -d ' ' -f 2-3 | nl -s ') ' |awk -v OFS="\t" '{ printf "   %-5s%-15s%-15s\n", $1, $2, $3 '}
-	echo -e " ${U}─────────────────────────────────────────────────${N}"
+	echo -e " ${U}═════════════════════════════════════════════════${N}"
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
 		if [[ ${CLIENT_NUMBER} == '1' ]]; then
 			read -rp " Select one client [1]: " CLIENT_NUMBER
@@ -734,30 +734,30 @@ function cekconfig(){
 	NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/xray/ssh")
 	if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 		clear
-		echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-		echo -e "${U}│${N}${O}                 ${W}● USER CONFIG ●                 ${N}${U}│${N}"
-		echo -e "${U}└─────────────────────────────────────────────────┘${N}"
-		echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-		echo -e "${U}│                                                 │"
-		echo -e "${U}│${W} User Tidak Ada!                              ${U}   │"
-		echo -e "${U}│                                                 │"
-		echo -e "${U}└─────────────────────────────────────────────────┘${N}"
+		echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+		echo -e "${U}║${N}${O}                 ${W}● USER CONFIG ●                 ${N}${U}║${N}"
+		echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
+		echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+		echo -e "${U}║                                                 ║"
+		echo -e "${U}║${W} User Tidak Ada!                              ${U}   ║"
+		echo -e "${U}║                                                 ║"
+		echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
 		echo ""
 		read -n 1 -s -r -p "Press any key to back on menu"
 		m-sshovpn
 	fi
-	echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-	echo -e "${U}│${N}${O}                 ${W}● USER CONFIG ●                 ${N}${U}│${N}"
-	echo -e "${U}└─────────────────────────────────────────────────┘${N}"
-	echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
-	echo -e "${U}│ ${W}Silahkan Pilih User Yang Mau Dicek     ${U}         │"
-	echo -e "${U}│ ${W}Ketik [0] kembali ke menu                    ${U}   │"
-	echo -e "${U}└─────────────────────────────────────────────────┘${N}"
-	echo -e " ${U}─────────────────────────────────────────────────${N}"
+	echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+	echo -e "${U}║${N}${O}                 ${W}● USER CONFIG ●                 ${N}${U}║${N}"
+	echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
+	echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
+	echo -e "${U}║ ${W}Silahkan Pilih User Yang Mau Dicek     ${U}         ║"
+	echo -e "${U}║ ${W}Ketik [0] kembali ke menu                    ${U}   ║"
+	echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
+	echo -e " ${U}═════════════════════════════════════════════════${N}"
 	printf "   %-5s%-15s%-15s\n" "NO." "NAMA" "EXPIRED"
-	echo -e " ${U}─────────────────────────────────────────────────${N}"
+	echo -e " ${U}═════════════════════════════════════════════════${N}"
 	grep -E "^### " "/etc/xray/ssh" | cut -d ' ' -f 2-3 | nl -s ') ' |awk -v OFS="\t" '{ printf "   %-5s%-15s%-15s\n", $1, $2, $3 '}
-	echo -e " ${U}─────────────────────────────────────────────────${N}"
+	echo -e " ${U}═════════════════════════════════════════════════${N}"
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
 		if [[ ${CLIENT_NUMBER} == '1' ]]; then
 			read -rp "Select one client [1]: " CLIENT_NUMBER
@@ -790,12 +790,12 @@ function cekconfig(){
 # HAPUS LAMA
 function hapuslama(){
 	clear
-	echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
+	echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
 	echo -e "${U} ${N} ${O}                 ${W}● MEMBER SSH ●                 ${N}${U}${N}"
-	echo -e "${U}└─────────────────────────────────────────────────┘${N}"
-	echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
+	echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
+	echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
 	echo "USERNAME          EXP DATE          STATUS"
-	echo -e "${U}└─────────────────────────────────────────────────┘${N}"
+	echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
 	while read expired; do
 		AKUN="$(echo $expired | cut -d: -f1)"
 		ID="$(echo $expired | grep -v nobody | cut -d: -f3)"
@@ -810,13 +810,13 @@ function hapuslama(){
 		fi
 	done < /etc/passwd
 	JUMLAH="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
-	echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
+	echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
 	echo "Account number: $JUMLAH user"
-	echo -e "${U}└─────────────────────────────────────────────────┘${N}"
-	echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
+	echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
+	echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
 	echo -e "${U} ${N}${O}              ${W}● DELETE USERS ●                   ${N}${U}${N}"
-	echo -e "${U}└─────────────────────────────────────────────────┘${N}"
-	echo -e "${U}┌─────────────────────────────────────────────────┐${N}"
+	echo -e "${U}╚═════════════════════════════════════════════════╝${N}"
+	echo -e "${U}╔═════════════════════════════════════════════════╗${N}"
 	echo ""
 	read -p "Username SSH to Delete : " Pengguna
 	if getent passwd $Pengguna > /dev/null 2>&1; then
@@ -840,10 +840,10 @@ function cek(){
     CITY=$(cat /etc/xray/city)
     domain=$(cat /etc/xray/domain)
     author=$(cat /etc/profil)
-    echo -e " ${U}┌─────────────────────────────────────────────────┐${N}"
-    echo -e " ${U}│${N}${O}              ${W}● SSH ACTIVE USERS ●               ${N}${U}│ ${N}"
-    echo -e " ${U}└─────────────────────────────────────────────────┘${N}"
-    echo -e " ${U}┌─────────────────────────────────────────────────┐${N}"
+    echo -e " ${U}╔═════════════════════════════════════════════════╗${N}"
+    echo -e " ${U}║${N}${O}              ${W}● SSH ACTIVE USERS ●               ${N}${U}║ ${N}"
+    echo -e " ${U}╚═════════════════════════════════════════════════╝${N}"
+    echo -e " ${U}╔═════════════════════════════════════════════════╗${N}"
     rm -rf /tmp/ssh2
 
     # Restart relevant services to force re-login and logging
@@ -906,8 +906,8 @@ function cek(){
             done
         fi
     done
-    printf " ${U}%-7s${W}%-20s%-13s%-12s${U}%s\n" "│" "USERNAME" "LOGIN" "LIMIT IP" "│"
-    echo -e " ├─────────────────────────────────────────────────┤"
+    printf " ${U}%-7s${W}%-20s%-13s%-12s${U}%s\n" "║" "USERNAME" "LOGIN" "LIMIT IP" "║"
+    echo -e " ╠═════════════════════════════════════════════════╣"
     # Print result
     j="0"
     for i in ${!username[*]}; do
@@ -915,7 +915,7 @@ function cek(){
         if [[ ${jumlah[$i]} -gt $limitip ]]; then
             iplim=$(cat /etc/xray/sshx/${username[$i]}IP) > /dev/null
             sship=$(cat /tmp/ssh2 | grep -w "${username[$i]}" | wc -l)
-            printf " %-7s${Y}%-20s${G}%-13s${Y}%-12s${U}%s\n" "│" "${username[$i]}" "${sship} IP" "${iplim} IP" "│"
+            printf " %-7s${Y}%-20s${G}%-13s${Y}%-12s${U}%s\n" "║" "${username[$i]}" "${sship} IP" "${iplim} IP" "║"
         fi
     done
 
@@ -932,10 +932,10 @@ function cek(){
         cat /tmp/vpn-login-udp.txt
     fi
 
-    echo -e " ${U}└─────────────────────────────────────────────────┘${N}"
-    echo -e " ${U}┌─────────────────────────────────────────────────┐${N}"
-    echo -e " ${U}│${W}          CODE BY : ALAWI CONFIG-SANTRI          ${U}│${N}"
-    echo -e " ${U}└─────────────────────────────────────────────────┘${N}"
+    echo -e " ${U}╚═════════════════════════════════════════════════╝${N}"
+    echo -e " ${U}╔═════════════════════════════════════════════════╗${N}"
+    echo -e " ${U}║${W}          CODE BY : ALAWI CONFIG-SANTRI          ${U}║${N}"
+    echo -e " ${U}╚═════════════════════════════════════════════════╝${N}"
     echo
     read -n 1 -s -r -p "  Press any key to back on menu"
 	m-sshovpn
@@ -1029,17 +1029,17 @@ m-sshovpn
 clear
 function listssh(){
 clear
-echo -e "${U}┌──────────────────────────────────────────┐${N}"
-echo -e "${U}│ \033[1;37mPlease select a your Choice              ${U}│${N}"
-echo -e "${U}└──────────────────────────────────────────┘${N}"
-echo -e "${U}┌──────────────────────────────────────────┐${N}"
-echo -e "${U}│  [ 1 ]  \033[1;37mAUTO LOCKED USER SSH      ${N}"
-echo -e "${U}│  "
-echo -e "${U}│  [ 2 ]  \033[1;37mAUTO DELETE USER SSH    ${N}"
-echo -e "${U}│  "
-echo -e "${U}│  "
-echo -e "${U}│  [ 0 ]  \033[1;37mBACK TO MENU    ${N}"
-echo -e "${U}└──────────────────────────────────────────┘${N}"
+echo -e "${U}╔══════════════════════════════════════════╗${N}"
+echo -e "${U}║ \033[1;37mPlease select a your Choice              ${U}║${N}"
+echo -e "${U}╚══════════════════════════════════════════╝${N}"
+echo -e "${U}╔══════════════════════════════════════════╗${N}"
+echo -e "${U}║  [ 1 ]  \033[1;37mAUTO LOCKED USER SSH      ${N}"
+echo -e "${U}║  "
+echo -e "${U}║  [ 2 ]  \033[1;37mAUTO DELETE USER SSH    ${N}"
+echo -e "${U}║  "
+echo -e "${U}║  "
+echo -e "${U}║  [ 0 ]  \033[1;37mBACK TO MENU    ${N}"
+echo -e "${U}╚══════════════════════════════════════════╝${N}"
 until [[ $lock =~ ^[0-2]+$ ]]; do
 read -p "   Please select numbers 1 sampai 2 : " lock
 done
@@ -1048,89 +1048,89 @@ m-sshovpn
 elif [[ $lock == "1" ]]; then
 clear
 echo "lock" > /etc/typessh
-echo -e "${U}┌───────────────────────────────────────────────┐${N}"
-echo -e "${U}│${N}${O}           ${W}● SETTING MULTI LOGIN ●             ${N}${U}│ ${N}"
-echo -e "${U}└───────────────────────────────────────────────┘${N}"
-echo -e "${U}┌───────────────────────────────────────────────┐${N}"
-echo -e "${U}│${N} Succes Ganti Auto Lock  ${N}"
-echo -e "${U}│${N} Jika User Melanggar auto lock Account. ${N}"
-echo -e "${U}└───────────────────────────────────────────────┘${N}"
+echo -e "${U}╔═══════════════════════════════════════════════╗${N}"
+echo -e "${U}║${N}${O}           ${W}● SETTING MULTI LOGIN ●             ${N}${U}║ ${N}"
+echo -e "${U}╚═══════════════════════════════════════════════╝${N}"
+echo -e "${U}╔═══════════════════════════════════════════════╗${N}"
+echo -e "${U}║${N} Succes Ganti Auto Lock  ${N}"
+echo -e "${U}║${N} Jika User Melanggar auto lock Account. ${N}"
+echo -e "${U}╚═══════════════════════════════════════════════╝${N}"
 sleep 1
 elif [[ $lock == "2" ]]; then
 clear
 echo "delete" > /etc/typessh
-echo -e "${U}┌───────────────────────────────────────────────┐${N}"
-echo -e "${U}│${N}${O}           ${W}● SETTING MULTI LOGIN ●             ${N}${U}│ ${N}"
-echo -e "${U}└───────────────────────────────────────────────┘${N}"
-echo -e "${U}┌───────────────────────────────────────────────┐${N}"
-echo -e "${U}│${N} Succes Ganti Auto Delete Accounr ${N}"
-echo -e "${U}│${N} Jika User Melanggar auto Delete Account. ${N}"
-echo -e "${U}└───────────────────────────────────────────────┘${N}"
+echo -e "${U}╔═══════════════════════════════════════════════╗${N}"
+echo -e "${U}║${N}${O}           ${W}● SETTING MULTI LOGIN ●             ${N}${U}║ ${N}"
+echo -e "${U}╚═══════════════════════════════════════════════╝${N}"
+echo -e "${U}╔═══════════════════════════════════════════════╗${N}"
+echo -e "${U}║${N} Succes Ganti Auto Delete Accounr ${N}"
+echo -e "${U}║${N} Jika User Melanggar auto Delete Account. ${N}"
+echo -e "${U}╚═══════════════════════════════════════════════╝${N}"
 sleep 1
 fi
 type=$(cat /etc/typessh)
 if [ $type = "lock" ]; then
 clear
-echo -e "${U}┌───────────────────────────────────────────────┐${N}"
-echo -e "${U}│${N}${O}           ${W}● SETTING MULTI LOGIN ●             ${N}${U}│ ${N}"
-echo -e "${U}└───────────────────────────────────────────────┘${N}"
-echo -e "${U}┌───────────────────────────────────────────────┐${N}"
-echo -e "${U}│${N} SILAHKAN TULIS JUMLAH WAKTU UNTUK LOCKED  ${N}"
-echo -e "${U}│${N} BISA TULIS 15 MENIT DLL. ${N}"
-echo -e "${U}└───────────────────────────────────────────────┘${N}"
+echo -e "${U}╔═══════════════════════════════════════════════╗${N}"
+echo -e "${U}║${N}${O}           ${W}● SETTING MULTI LOGIN ●             ${N}${U}║ ${N}"
+echo -e "${U}╚═══════════════════════════════════════════════╝${N}"
+echo -e "${U}╔═══════════════════════════════════════════════╗${N}"
+echo -e "${U}║${N} SILAHKAN TULIS JUMLAH WAKTU UNTUK LOCKED  ${N}"
+echo -e "${U}║${N} BISA TULIS 15 MENIT DLL. ${N}"
+echo -e "${U}╚═══════════════════════════════════════════════╝${N}"
 read -rp "   Jumlah Waktu Lock: " -e notif2
 echo "${notif2}" > /etc/waktulockssh
 clear
-echo -e "${U}┌───────────────────────────────────────────────┐${N}"
-echo -e "${U}│${N}${O}           ${W}● SETTING MULTI LOGIN ●             ${N}${U}│ ${N}"
-echo -e "${U}└───────────────────────────────────────────────┘${N}"
-echo -e "${U}┌───────────────────────────────────────────────┐${N}"
-echo -e "${U}│ ${N} SILAHKAN TULIS JUMLAH NOTIFIKASI UNTUK AUTO LOCK    ${N}"
-echo -e "${U}│ ${N} AKUN USER YANG MULTI LOGIN     ${N}"
-echo -e "${U}└───────────────────────────────────────────────┘${N}"
+echo -e "${U}╔═══════════════════════════════════════════════╗${N}"
+echo -e "${U}║${N}${O}           ${W}● SETTING MULTI LOGIN ●             ${N}${U}║ ${N}"
+echo -e "${U}╚═══════════════════════════════════════════════╝${N}"
+echo -e "${U}╔═══════════════════════════════════════════════╗${N}"
+echo -e "${U}║ ${N} SILAHKAN TULIS JUMLAH NOTIFIKASI UNTUK AUTO LOCK    ${N}"
+echo -e "${U}║ ${N} AKUN USER YANG MULTI LOGIN     ${N}"
+echo -e "${U}╚═══════════════════════════════════════════════╝${N}"
 read -rp "   Jika Mau 3x Notif baru kelock tulis 3, dst: " -e notif
 cd /etc/xray/sshx
 echo "$notif" > notif
 clear
-echo -e "${U}┌───────────────────────────────────────────────┐${N}"
-echo -e "${U}│${N}${O}           ${W}● SETTING MULTI LOGIN ●             ${N}${U}│ ${N}"
-echo -e "${U}└───────────────────────────────────────────────┘${N}"
-echo -e "${U}┌───────────────────────────────────────────────┐${N}"
-echo -e "${U}│ ${N} SUCCES GANTI NOTIF LOCK JADI $notif ${N} "
-echo -e "${U}│ ${N} SUCCES GANTI TIME NOTIF LOCK JADI $notif2 MENIT ${N} "
-echo -e "${U}└───────────────────────────────────────────────┘${N}"
+echo -e "${U}╔═══════════════════════════════════════════════╗${N}"
+echo -e "${U}║${N}${O}           ${W}● SETTING MULTI LOGIN ●             ${N}${U}║ ${N}"
+echo -e "${U}╚═══════════════════════════════════════════════╝${N}"
+echo -e "${U}╔═══════════════════════════════════════════════╗${N}"
+echo -e "${U}║ ${N} SUCCES GANTI NOTIF LOCK JADI $notif ${N} "
+echo -e "${U}║ ${N} SUCCES GANTI TIME NOTIF LOCK JADI $notif2 MENIT ${N} "
+echo -e "${U}╚═══════════════════════════════════════════════╝${N}"
 else
-echo -e "${U}┌───────────────────────────────────────────────┐${N}"
-echo -e "${U}│${N}${O}           ${W}● SETTING MULTI LOGIN ●             ${N}${U}│ ${N}"
-echo -e "${U}└───────────────────────────────────────────────┘${N}"
-echo -e "${U}┌───────────────────────────────────────────────┐${N}"
-echo -e "${U}│${N} SILAHKAN TULIS JUMLAH WAKTU UNTUK UNTUK SCAN ${N}"
-echo -e "${U}│${N} USER YANG SEDANG MULTI LOGIN . ${N}"
-echo -e "${U}└───────────────────────────────────────────────┘${N}"
+echo -e "${U}╔═══════════════════════════════════════════════╗${N}"
+echo -e "${U}║${N}${O}           ${W}● SETTING MULTI LOGIN ●             ${N}${U}║ ${N}"
+echo -e "${U}╚═══════════════════════════════════════════════╝${N}"
+echo -e "${U}╔═══════════════════════════════════════════════╗${N}"
+echo -e "${U}║${N} SILAHKAN TULIS JUMLAH WAKTU UNTUK UNTUK SCAN ${N}"
+echo -e "${U}║${N} USER YANG SEDANG MULTI LOGIN . ${N}"
+echo -e "${U}╚═══════════════════════════════════════════════╝${N}"
 read -rp "   Tulis Waktu Scan (Menit) : " -e notif2
 echo "# Autokill" >/etc/cron.d/tendang
 echo "SHELL=/bin/sh" >>/etc/cron.d/tendang
 echo "PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin" >>/etc/cron.d/tendang
 echo "*/$notif2 * * * *  root /usr/bin/tendang" >>/etc/cron.d/tendang
 clear
-echo -e "${U}┌───────────────────────────────────────────────┐${N}"
-echo -e "${U}│${N}${O}           ${W}● SETTING MULTI LOGIN ●             ${N}${U}│ ${N}"
-echo -e "${U}└───────────────────────────────────────────────┘${N}"
-echo -e "${U}┌───────────────────────────────────────────────┐${N}"
-echo -e "${U}│ ${N} SILAHKAN TULIS JUMLAH NOTIFIKASI UNTUK AUTO LOCK    ${N}"
-echo -e "${U}│ ${N} AKUN USER YANG MULTI LOGIN     ${N}"
-echo -e "${U}└───────────────────────────────────────────────┘${N}"
+echo -e "${U}╔═══════════════════════════════════════════════╗${N}"
+echo -e "${U}║${N}${O}           ${W}● SETTING MULTI LOGIN ●             ${N}${U}║ ${N}"
+echo -e "${U}╚═══════════════════════════════════════════════╝${N}"
+echo -e "${U}╔═══════════════════════════════════════════════╗${N}"
+echo -e "${U}║ ${N} SILAHKAN TULIS JUMLAH NOTIFIKASI UNTUK AUTO LOCK    ${N}"
+echo -e "${U}║ ${N} AKUN USER YANG MULTI LOGIN     ${N}"
+echo -e "${U}╚═══════════════════════════════════════════════╝${N}"
 read -rp "   Jika Mau 3x Notif baru kelock tulis 3, dst: " -e notif
 cd /etc/xray/sshx
 echo "$notif" > notif
 clear
-echo -e "${U}┌───────────────────────────────────────────────┐${N}"
-echo -e "${U}│${N}${O}           ${W}● SETTING MULTI LOGIN ●             ${N}${U}│ ${N}"
-echo -e "${U}└───────────────────────────────────────────────┘${N}"
-echo -e "${U}┌───────────────────────────────────────────────┐${N}"
-echo -e "${U}│ ${N} SUCCES GANTI NOTIF LOCK JADI $notif ${N} "
-echo -e "${U}│ ${N} SUCCES GANTI TIME NOTIF LOCK JADI $notif2 MENIT ${N} "
-echo -e "${U}└───────────────────────────────────────────────┘${N}"
+echo -e "${U}╔═══════════════════════════════════════════════╗${N}"
+echo -e "${U}║${N}${O}           ${W}● SETTING MULTI LOGIN ●             ${N}${U}║ ${N}"
+echo -e "${U}╚═══════════════════════════════════════════════╝${N}"
+echo -e "${U}╔═══════════════════════════════════════════════╗${N}"
+echo -e "${U}║ ${N} SUCCES GANTI NOTIF LOCK JADI $notif ${N} "
+echo -e "${U}║ ${N} SUCCES GANTI TIME NOTIF LOCK JADI $notif2 MENIT ${N} "
+echo -e "${U}╚═══════════════════════════════════════════════╝${N}"
 fi
 read -n 1 -s -r -p "Press any key to back on menu"
 m-sshovpn

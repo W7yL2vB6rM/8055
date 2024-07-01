@@ -96,12 +96,12 @@ function add-host(){
 		wget -q ${REPOSC}/slowdns/installsl.sh && chmod +x installsl.sh && ./installsl.sh
 	}
 	clear
-	echo -e "${U}┌──────────────────────────────────────────┐${N}"
-	echo -e "${U}│${W}       Please select a your Choice        ${U}│${N}"
-	echo -e "${U}└──────────────────────────────────────────┘${N}"
-	echo -e "${U}┌──────────────────────────────────────────┐${N}"
-	echo -e "${U}│${N} [${U}01${N}] Domain kamu Sendri                  ${U}│${N}"
-	echo -e "${U}└──────────────────────────────────────────┘${N}"
+	echo -e "${U}╔══════════════════════════════════════════╗${N}"
+	echo -e "${U}║${W}       Please select a your Choice        ${U}║${N}"
+	echo -e "${U}╚══════════════════════════════════════════╝${N}"
+	echo -e "${U}╔══════════════════════════════════════════╗${N}"
+	echo -e "${U}║${N} [${U}01${N}] Domain kamu Sendri                  ${U}║${N}"
+	echo -e "${U}╚══════════════════════════════════════════╝${N}"
 	until [[ $dns =~ ^[0-9]+$ ]]; do
     	read -p " Please select numbers 1 : " dns
 	done
@@ -533,16 +533,16 @@ menu
 }
 function m-bot2(){
 clear
-echo -e "${U}┌──────────────────────────────────────────┐${N}"
+echo -e "${U}╔══════════════════════════════════════════╗${N}"
 echo -e "${U}  ${W}Please select a Bot type below                 ${N}"
-echo -e "${U}└──────────────────────────────────────────┘${N}"
-echo -e "${U}┌──────────────────────────────────────────┐${N}"
+echo -e "${U}╚══════════════════════════════════════════╝${N}"
+echo -e "${U}╔══════════════════════════════════════════╗${N}"
 echo -e "${U}  [ 1 ] ${W}Buat/Edit BOT INFO Multi Login SSH, XRAY & TRANSAKSI   ${N}"
 echo -e ""
 echo -e "${U}  [ 2 ] ${W}Buat/Edit BOT INFO Create User & Lain Lain    ${N}"
 echo -e ""
 echo -e "${U}  [ 3 ] ${W}Buat/Edit BOT INFO Backup Telegram    ${N}"
-echo -e "${U}└──────────────────────────────────────────┘${N}"
+echo -e "${U}╚══════════════════════════════════════════╝${N}"
 read -p "   Please select numbers 1-3 or Any Button(Random) to exit : " bot
 echo ""
 if [[ $bot == "1" ]]; then
@@ -747,14 +747,14 @@ cp -r /usr/local/bin/xray /usr/local/bin/offixray &> /dev/null
 fi
 clear
 echo -e " "
-echo -e "${U}┌──────────────────────────────────────────┐${N}"
-echo -e "${U}│ ${W}Please select a your Choice to Set CORE MENU           ${N}"
-echo -e "${U}└──────────────────────────────────────────┘${N}"
-echo -e "${U}┌──────────────────────────────────────────┐${N}"
-echo -e "${U}│  [ 1 ]  ${W}XRAY CORE OFFICIAL       ${N}"
-echo -e "${U}│"
-echo -e "${U}│  [ 2 ]  ${W}XRAY CORE MOD    ${N}"
-echo -e "${U}└──────────────────────────────────────────┘${N}"
+echo -e "${U}╔══════════════════════════════════════════╗${N}"
+echo -e "${U}║ ${W}Please select a your Choice to Set CORE MENU           ${N}"
+echo -e "${U}╚══════════════════════════════════════════╝${N}"
+echo -e "${U}╔══════════════════════════════════════════╗${N}"
+echo -e "${U}║  [ 1 ]  ${W}XRAY CORE OFFICIAL       ${N}"
+echo -e "${U}║"
+echo -e "${U}║  [ 2 ]  ${W}XRAY CORE MOD    ${N}"
+echo -e "${U}╚══════════════════════════════════════════╝${N}"
 until [[ $core =~ ^[0-9]+$ ]]; do
 read -p "   Please select numbers 1-2 or Any Button(EXIT) : " core
 done
@@ -779,20 +779,20 @@ menu
 }
 function dobot(){
 clear
-echo -e "${U}┌──────────────────────────────────────────┐${N}"
-echo -e "${U}│ ${W}Please select a your Choice to Set           ${N}"
-echo -e "${U}└──────────────────────────────────────────┘${N}"
-echo -e "${U}┌──────────────────────────────────────────┐${N}"
-echo -e "${U}│  [ 1 ]  ${W}INSTAL BOT CRATE AKUN DIGITAL OCEAN      ${N}"
-echo -e "${U}│"
-echo -e "${U}│  [ 2 ]  ${W}COPY BOT CREATE AKUN DIGITAL OCEAN   ${N}"
+echo -e "${U}╔══════════════════════════════════════════╗${N}"
+echo -e "${U}║ ${W}Please select a your Choice to Set           ${N}"
+echo -e "${U}╚══════════════════════════════════════════╝${N}"
+echo -e "${U}╔══════════════════════════════════════════╗${N}"
+echo -e "${U}║  [ 1 ]  ${W}INSTAL BOT CRATE AKUN DIGITAL OCEAN      ${N}"
+echo -e "${U}║"
+echo -e "${U}║  [ 2 ]  ${W}COPY BOT CREATE AKUN DIGITAL OCEAN   ${N}"
 if [[ -e /etc/cron.d/bantwidth ]]; then
 echo -ne
 else
-echo -e "${U}│"
-echo -e "${U}│  [ 3 ]  ${W}SET BANTWIDTH BUAT JUALAN DIGITAL OCEAN${N}"
+echo -e "${U}║"
+echo -e "${U}║  [ 3 ]  ${W}SET BANTWIDTH BUAT JUALAN DIGITAL OCEAN${N}"
 fi
-echo -e "${U}└──────────────────────────────────────────┘${N}"
+echo -e "${U}╚══════════════════════════════════════════╝${N}"
 until [[ $dobot =~ ^[0-9]+$ ]]; do
 read -p "   Please select numbers 1-3 or Any Button(BACK) : " dobot
 done

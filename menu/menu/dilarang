@@ -20,14 +20,14 @@ penyamaan() {
     done
 }
 cetak_judul() {
-    printf "${U}%s${N}${O}%s${tebal}%s%s${N}${U}%s%s\n" "│" "$padding" "$judul" "$padding" "│"
+    printf "${U}%s${N}${O}%s${tebal}%s%s${N}${U}%s%s\n" "║" "$padding" "$judul" "$padding" "║"
 }
 cetak() {
 lebarjudul=${#judul}
 if (( lebarjudul % 2 == 1 )); then
-    printf "${U}%s${warna}%s%s%s${N}${U}%s%s\n" "│" "$padding" "$judul" "$padding" " " "│"
+    printf "${U}%s${warna}%s%s%s${N}${U}%s%s\n" "║" "$padding" "$judul" "$padding" " " "║"
 else
-    printf "${U}%s${warna}%s%s%s${N}${U}%s%s\n" "│" "$padding" "$judul" "$padding" "│"
+    printf "${U}%s${warna}%s%s%s${N}${U}%s%s\n" "║" "$padding" "$judul" "$padding" "║"
 fi
 }
 judul1() {
@@ -58,11 +58,11 @@ judul5() {
 }
 clear
 echo
-echo -e "${U}┌──────────────────────────────────────────┐${N}"
+echo -e "${U}╔══════════════════════════════════════════╗${N}"
 judul1
 cetak_judul
-echo -e "${U}└──────────────────────────────────────────┘${N}"
-echo -e "${U}┌──────────────────────────────────────────┐${N}"
+echo -e "${U}╚══════════════════════════════════════════╝${N}"
+echo -e "${U}╔══════════════════════════════════════════╗${N}"
 judul2
 cetak
 judul3
@@ -71,4 +71,4 @@ judul4
 cetak
 judul5
 cetak
-echo -e "${U}└──────────────────────────────────────────┘${N}"
+echo -e "${U}╚══════════════════════════════════════════╝${N}"
