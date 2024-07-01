@@ -1183,7 +1183,7 @@ exp=$(grep -E "^### " "/etc/xray/sshx/listlock" | cut -d ' ' -f 3 | sed -n "${CL
 pass=$(grep -E "^### " "/etc/xray/sshx/listlock" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
 passwd -u $user &> /dev/null
 iplim=$(cat /etc/xray/sshx/${user}IP)
-echo -e "### $user $exp $Pass" >> /etc/xray/ssh
+echo -e "### $user $exp $pass" >> /etc/xray/ssh
 sed -i "/^### $user $exp $pass/d" /etc/xray/sshx/listlock &> /dev/null
 TEXT="
 ━━━━━━━━━━━━━━━━━━━━━━━
